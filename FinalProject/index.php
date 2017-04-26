@@ -1,82 +1,28 @@
-<!DOCTYPE HTML>
-<html>
-	<head lang="en">
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Cornell Policy Review</title>
-		<link rel="stylesheet" type="text/css" media="screen" href="css/screen2.css">
+<?php
+  //custom HTML headers
+  function customHeader(){
+    print('
+      <!-- Load Leaflet from CDN-->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+      <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js"></script>
 
-		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600" rel="stylesheet"> 
-		<link href=http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,700,300 rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto" rel="stylesheet"> 
+      <!-- Load Esri Leaflet from CDN -->
+      <script src="https://unpkg.com/esri-leaflet@2.0.8"></script>
+      <script src="https://leaflet.github.io/Leaflet.label/leaflet.label.js"></script>
+      <script src="https://cdn.rawgit.com/Leaflet/Leaflet.heat/gh-pages/dist/leaflet-heat.js"></script>
+      <script src="https://cdn.jsdelivr.net/leaflet.esri.heatmap-feature-layer/2.0.0-beta.1/esri-leaflet-heatmap-feature-layer.js"></script>
+      <script src="http://cdn.jsdelivr.net/leaflet.esri.renderers/2.0.2/esri-leaflet-renderers.js"></script>
+      <script src="https://muxlab.github.io/Leaflet.VectorIcon/L.VectorIcon.js"></script>
+      <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/leaflet.esri.webmap/0.4.0/esri-leaflet-webmap.js"></script>
 
-		<link rel="stylesheet" type="text/css" media="all" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		  <!-- Load Leaflet from CDN-->
-		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js"></script>
-
-		<!-- Load Esri Leaflet from CDN -->
-		<script src="https://unpkg.com/esri-leaflet@2.0.8"></script>
-		<script src="https://leaflet.github.io/Leaflet.label/leaflet.label.js"></script>
-		<script src="https://cdn.rawgit.com/Leaflet/Leaflet.heat/gh-pages/dist/leaflet-heat.js"></script>
-		<script src="https://cdn.jsdelivr.net/leaflet.esri.heatmap-feature-layer/2.0.0-beta.1/esri-leaflet-heatmap-feature-layer.js"></script>
-		<script src="http://cdn.jsdelivr.net/leaflet.esri.renderers/2.0.2/esri-leaflet-renderers.js"></script>
-		<script src="https://muxlab.github.io/Leaflet.VectorIcon/L.VectorIcon.js"></script>
-		<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js'></script>
-		<script src="https://cdn.jsdelivr.net/leaflet.esri.webmap/0.4.0/esri-leaflet-webmap.js"></script>
-
-		<script type="text/javascript" src="js/scripts.js"></script>
-	</head>
-	<body>
-		<div id="page">
-			<header>
-				<a class="logo" title="Cornell Policy Review" href="index.php"><span>Cornell Policy Review</span></a>
-				<div id="topnav">
-					<a href="#" id="searchtoggl"><i class="fa fa-search fa-lg"></i></a>
-					<a href="#">Login</a>
-				</div>
-			</header>
-
-
-			<div id="searchbar" class="clearfix">
-				<form id="searchform" method="get" action="searchpage.php">
-				    <button type="submit" id="searchsubmit" class="fa fa-search fa-4x"></button>
-				    <input type="search" class="search" name="locationsearch" id="locationsearch" placeholder="Location..." autocomplete="off">
-				    <input type="search" class="search"  name="tagsearch" id="taglocation" placeholder="Tag..." autocomplete="off">
-				</form>
-			</div>
-
-
-			<nav>
-				<ul>
-					<li><a href="#" aria-haspopup="true">Articles</a>
-						<ul>
-							<li><a href="#">First One</a></li>
-							<li><a href="#">Second</a></li>
-							<li><a href="#">Third</a></li>
-							<li><a href="#">Fourth</a></li>
-							<li><a href="#">Fifth</a></li>
-						</ul>
-					</li>
-					<li><a href="#" aria-haspopup="true">Authors</a>
-						<ul>
-							<li><a href="#">Jane Doe</a></li>
-							<li><a href="#">John Doe</a></li>
-							<li><a href="#">Blah McBlah</a></li>
-							<li><a href="#">Bahd</a></li>
-						</ul>
-					</li>
-					<li><a href="#">CPR Website</a></li>
-				</ul>
-			</nav>
-			<div class="SpecEd">
-				<h1>Special Edition: GIS</h1>
-				<h2>Geographical Information System</h2>
-			</div>
+      <script type="text/javascript" src="js/scripts.js"></script>');
+  }
+  include_once("includes/header.php");
+?>
 		<section class="article">
 		<h1> Title of the Article</h1>
-		</section>		
+		</section>
 		<div id="map"></div>
 		<section class="article">
 		<h2> This is a subheading </h2>
