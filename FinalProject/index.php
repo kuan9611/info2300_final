@@ -16,6 +16,9 @@
       <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
       <script src="https://cdn.jsdelivr.net/leaflet.esri.webmap/0.4.0/esri-leaflet-webmap.js"></script>
 
+      <link rel="stylesheet" href="https://cdn.rawgit.com/ardhi/Leaflet.MousePosition/master/src/L.Control.MousePosition.css" />
+      <script src="https://cdn.rawgit.com/ardhi/Leaflet.MousePosition/master/src/L.Control.MousePosition.js"></script>
+
       <script type="text/javascript" src="js/scripts.js"></script>');
   }
   include_once("includes/header.php");
@@ -67,6 +70,11 @@ Mel in soleat evertitur, per debet sonet ut. Solum elitr in per. No denique abho
       }).addTo(webmap._map);
   });
 
+	L.control.mousePosition().addTo(webmap._map);
+	webmap._map.on("click", function(e) {
+		console.log(e.latlng);
+	});
+
   function getIdfromUrl() {
     var urlParams = location.search.substring(1).split('&');
     for (var i=0; urlParams[i]; i++) {
@@ -77,5 +85,27 @@ Mel in soleat evertitur, per debet sonet ut. Solum elitr in per. No denique abho
     }
   }
 </script>
-	</body>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+//this.page.url = PAGE_URL;  default would be window.location.href
+this.page.identifier = 1; // Can use article id
+};
+
+(function() {
+	var d = document, s = d.createElement('script');
+	s.src = 'https://cpr-gis.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+</body>
 </html>

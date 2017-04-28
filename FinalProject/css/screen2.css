@@ -448,10 +448,12 @@ nav > ul > li > a[aria-haspopup="true"]::after {
 html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
 
+#disqus_thread { 
+	width: 90%;
+	margin: 0 auto;
+}
 
-
-
-
+li.reply { display: none !important; }
 
 
 
