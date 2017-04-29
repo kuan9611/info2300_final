@@ -47,8 +47,9 @@
         //can add link to author later
         print("<p class='author'> Posted $date_posted by $authors </p>");
       print("</div>");
+?>
 
-      print("<div id='map'></div>");
+<?php
 
       $content_arr=explode("|", $content); //paragraphs stored in database separated by "|"
       print("<div class='article'>");
@@ -78,7 +79,11 @@
     }
   }
 ?>
-
+<button id="maptoggle">Toggle Map</button>
+<button id="leaveComment">Leave a Comment</button>
+<div id="mapcontainer">
+  <div id="map"></div>
+</div>
 
 
 
