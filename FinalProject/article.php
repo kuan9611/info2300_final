@@ -92,7 +92,6 @@
   // webmap.html?id=13750b8b548d48bfa99a9731f2a93ba0
 
   var webmapId = '22c504d229f14c789c5b49ebff38b941'; // Default WebMap ID
-  getIdfromUrl();
 
   var webmap = L.esri.webMap(webmapId, { map: L.map("map") });
 
