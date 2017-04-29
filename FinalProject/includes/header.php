@@ -8,11 +8,11 @@
 		<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600" rel="stylesheet">
-		<link href=http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,700,300 rel="stylesheet">
+		<link href=https://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,700,300 rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto" rel="stylesheet">
 
-		<link rel="stylesheet" type="text/css" media="all" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" media="all" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<?php if (function_exists('customHeader')) {customHeader();}?>
 	</head>
 	<body>
