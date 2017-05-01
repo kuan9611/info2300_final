@@ -228,7 +228,7 @@ nav ul ul ul {
 	margin: 0;
 }
 
-#leaveComment {
+#leaveComment, #showComment, #hideComment {
 	position: fixed;
 	height: 4em;
 	width: 5%;
@@ -244,6 +244,7 @@ nav ul ul ul {
 	z-index: 998;
 	opacity: .7;
 }
+#leaveComment { top: 70%; }
 
 
 
@@ -352,39 +353,36 @@ html[xmlns] .clearfix { display: block; }
 	color: #b00d10;
 }
 
--/* Comment */
--#commentBox {
--	position: fixed;
--	display: none;
--	bottom: 60%;
--	left: 50%;
--	padding: 15px;
--	background-color: rgba(255,255,255,.8);
--	border-radius: 8px;
--	z-index: 999;
--}
--#commentBox form input {
--	padding: 3px 5px;
--	margin: 5px;
--}
--
--#disqus_thread {
--	position: relative;
--	width: 90%;
--	margin: 0 auto;
--}
--#disqus_thread:after {
--	content: "";
--	display: block;
--	height: 55px;
--	width: 100%;
--	position: absolute;
--	bottom: 0;
--	background: white;
--}
- 
- 
- 
+/* Comment */
+#commentBox {
+	position: fixed;
+	display: none;
+	bottom: 60%;
+	left: 50%;
+	padding: 15px;
+	background-color: rgba(255,255,255,.8);
+	border-radius: 8px;
+	z-index: 999;
+}
+#commentBox form input {
+	padding: 3px 5px;
+	margin: 5px;
+}
+
+#disqus_thread {
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+}
+#disqus_thread:after {
+	content: "";
+	display: block;
+	height: 55px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	background: white;
+}
  
  
 -/* Images in Article */
