@@ -1,4 +1,4 @@
-<?php 
+<?php
   include_once("includes/header.php");
 ?>
 <?php
@@ -9,8 +9,7 @@
   } else {
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     $author_row = $mysqli->query("SELECT * FROM Authors WHERE author_id = $author_id");
-    //get the names of authors (in case more than one), concatenated by ","
-    $article_row = $mysqli->query("SELECT title, article_id FROM Articles INNER JOIN Authorship USING(article_id) INNER JOIN Authors USING(author_id) WHERE author_id = $author_id");
+    $article_row = $mysqli->query("SELECT title, article_id FROM Articles INNER JOIN Authorship USING(article_id) WHERE author_id = $author_id");
     if (!$author_row) {
     	print ("<p class='message'>Author not found</p>");
   	} else {
@@ -20,9 +19,12 @@
       $articlelink = $articles['article_id'];
       $name = $authors['name'];
       $description = $authors['description'];
-      $biopic = $authors['biopic'];
+      $biopic_id = $authors['biopic'];
+      $image = $mysqli->query("SELECT * FROM Images WHERE image_id = '$biopic_id'");
+      $img = $image->fetch_assoc();
+      $biopic = $img['filename'];
 			print("<div class='authorinfo'>");
-					print("<div id='authorcard')>");
+				print("<div id='authorcard')>");
 					print("<div id='authorpic'>");
 		    		print("<img src='images/$biopic' alt='Image not found' class='img'>");
 					print("</div>");
