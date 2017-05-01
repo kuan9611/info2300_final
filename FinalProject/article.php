@@ -85,14 +85,15 @@
 </div>
 <button id="maptoggle">Toggle Map</button>
 <button id="leaveComment">Leave a Comment</button>
+<button id="showComment">Show Comments</button>
+<button id="hideComment">Hide Comments</button>
 
 <div id="commentBox">
   <form method="post">
-    Comment:<br>
-    <input type="text" name="firstname" value="Mickey">
+    <textarea id="commentText" name="text_c" placeholder="Enter comment ..."></textarea>
     <br>
-    <input type="button" id="cancelComment" value="Cancel">
-    <input type="button" id="postComment" value="Post">
+    <input type="button" id="cancelComment" name="cancel_c" value="Cancel">
+    <input type="button" id="postComment" name="post_c" value="Post">
   </form>
 </div>
 

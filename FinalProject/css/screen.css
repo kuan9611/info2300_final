@@ -228,23 +228,23 @@ nav ul ul ul {
 	width: 60%;
 }
 
-#leaveComment {
+#leaveComment, #showComment, #hideComment {
 	position: fixed;
 	height: 4em;
 	width: 5%;
-	min-width: 5em;
+	min-width: 6em;
 	top: 60%;
 	left: -40%;
 	text-decoration: none;
 	background-color: #b00d10;
-	opacity: 60%;
+	opacity: 0.6;
 	border: none;
 	color: white;
 	border-radius: 0 10px 10px 0px;
 	z-index: 998;
 	opacity: .7;
 }
-
+#showComment, #hideComment { top: 75%; }
 
 .fa-lg {
 	color: white;

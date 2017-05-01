@@ -1,6 +1,3 @@
-var marker = null;
-var map;
-
 $(function(){
   var $searchlink = $('#searchtoggl i');
   var $searchbar  = $('#searchbar');
@@ -36,7 +33,7 @@ $(document).ready(function () {
 
   var webmapId = '22c504d229f14c789c5b49ebff38b941'; // Default WebMap ID
   var webmap = L.esri.webMap(webmapId, { map: L.map("map") });
-  map = webmap._map;
+  var map = webmap._map;
   
   webmap.on('load', function() {
       var overlayMaps = {};
@@ -60,6 +57,10 @@ $(document).ready(function () {
     }
   }
 
+  var marker = null;
+  var markers = [];
+  var commentLayer;
+
   $("#leaveComment").on("click", function() {
     if (marker === null) {
       marker = L.marker(map.getCenter()).addTo(map);
@@ -71,10 +72,35 @@ $(document).ready(function () {
     marker = null;
     $("#commentBox").hide();
   });
+  $("#postComment").on("click", function() {
+    marker.bindPopup($("#commentText").val());
+    $("#commentBox").hide();
+    markers.push(marker);
+    map.removeLayer(marker);
+    if ($("#hideComment").is(":visible")) {
+      map.removeLayer(commentLayer);
+      commentLayer = L.layerGroup(markers);
+      commentLayer.addTo(map);
+    }
+    marker = null;
+  });
   map.on('move', function () {
     if (marker !== null) {
       marker.setLatLng(map.getCenter());
     }
+  });
+
+  $("#showComment").on("click", function() {
+    $(this).hide();
+    $("#hideComment").show();
+    commentLayer = L.layerGroup(markers);
+    commentLayer.addTo(map);
+  });
+  $("#hideComment").hide();
+  $("#hideComment").on("click", function() {
+    $(this).hide();
+    $("#showComment").show();
+    map.removeLayer(commentLayer);
   });
 
   $('#maptoggle').on('click', function(e){
@@ -83,7 +109,7 @@ $(document).ready(function () {
     var screenWidth = $(window).width();
     var slideoutMap = $('#mapcontainer');
     var slideoutMapWidth = $('#mapcontainer').width();
-    var slideoutCom = $('#leaveComment');
+    var slideoutCom = $('#leaveComment, #showComment, #hideComment');
     // toggle open class
     slideoutMap.toggleClass("open");
     slideoutCom.toggleClass("open");
