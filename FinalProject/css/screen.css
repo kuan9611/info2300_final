@@ -467,37 +467,7 @@ html[xmlns] .clearfix { display: block; }
 
 	header { 
 		height: 110px; 
-	}/*
-	.logo { 
-		height: 4em;
-		width: 4em; 
-		no-repeat center center; 
-		background-size: 126px 126px; 
 	}
-
-	.SpecEd {
-		width: 100%;
-		left: 0;
-		top: 1em;
-		text-align: center;
-	}
-	
-	.SpecEd h1 {
-		font-size: 1em;
-		margin-bottom: 10px;
-		display: inline;
-	}
-	
-	.SpecEd a.btn {
-		padding: 2px 30px;
-		font-size: .8em;
-	}
-	
-	.SpecEd a.btn span { 
-		display: none; 
-	}*/
-	
-
 }
 
 
