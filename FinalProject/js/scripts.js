@@ -18,13 +18,6 @@ $(function(){
       });
 
   });
-
-  $('#logout').on('click', function(e) {
-    e.preventDefault();
-    $.get('includes/killsession.php', function() {
-      window.location = window.location;
-    });
-  });
   
   $('#searchform').submit(function(e){
     e.preventDefault(); // stop form submission
@@ -32,7 +25,7 @@ $(function(){
 });
 
 $(function(){
-  ('#logout').on('click', function(e) {
+  $('#logout').on('click', function(e) {
     e.preventDefault();
     $.get('includes/killsession.php', function() {
       window.location = window.location;
