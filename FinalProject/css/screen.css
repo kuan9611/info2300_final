@@ -237,7 +237,7 @@ nav ul ul ul {
 	left: -40%;
 	text-decoration: none;
 	background-color: #b00d10;
-	opacity: .6;
+	opacity: 0.6;
 	border: none;
 	color: white;
 	border-radius: 0 10px 10px 0px;
@@ -331,6 +331,7 @@ html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
 
 /* Bio Pic */
+
 .authorinfo {
 	margin: 0 auto;
 	width: 50%;
@@ -350,6 +351,52 @@ html[xmlns] .clearfix { display: block; }
 #authorbio h2 {
 	color: #b00d10;
 }
+
+-/* Comment */
+-#commentBox {
+-	position: fixed;
+-	display: none;
+-	bottom: 60%;
+-	left: 50%;
+-	padding: 15px;
+-	background-color: rgba(255,255,255,.8);
+-	border-radius: 8px;
+-	z-index: 999;
+-}
+-#commentBox form input {
+-	padding: 3px 5px;
+-	margin: 5px;
+-}
+-
+-#disqus_thread {
+-	position: relative;
+-	width: 90%;
+-	margin: 0 auto;
+-}
+-#disqus_thread:after {
+-	content: "";
+-	display: block;
+-	height: 55px;
+-	width: 100%;
+-	position: absolute;
+-	bottom: 0;
+-	background: white;
+-}
+ 
+ 
+ 
+ 
+ 
+-/* Images in Article */
+-.image {
+-	text-align: center;
+-}
+ 
+-.img {
+-	display: inline-block;
+-	padding: 0 20px;
+-}
+
 /* Media Queries */
 
 @media screen and (max-width: 1000px) { 
@@ -467,7 +514,37 @@ html[xmlns] .clearfix { display: block; }
 
 	header { 
 		height: 110px; 
+	}/*
+	.logo { 
+		height: 4em;
+		width: 4em; 
+		no-repeat center center; 
+		background-size: 126px 126px; 
 	}
+
+	.SpecEd {
+		width: 100%;
+		left: 0;
+		top: 1em;
+		text-align: center;
+	}
+	
+	.SpecEd h1 {
+		font-size: 1em;
+		margin-bottom: 10px;
+		display: inline;
+	}
+	
+	.SpecEd a.btn {
+		padding: 2px 30px;
+		font-size: .8em;
+	}
+	
+	.SpecEd a.btn span { 
+		display: none; 
+	}*/
+	
+
 }
 
 
