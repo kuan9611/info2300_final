@@ -23,9 +23,11 @@
   }
   include_once("includes/header.php");
 ?>
+
 <?php
   require_once 'includes/config.php';
   $article_id = trim(filter_input( INPUT_GET, "id", FILTER_VALIDATE_INT));
+
   if (empty($article_id)) {
     print ("<p class='message'>Article not found</p>");
   } else {
@@ -33,6 +35,7 @@
     $article_row = $mysqli->query("SELECT * FROM Articles WHERE article_id = $article_id");
     //get the names of authors (in case more than one), concatenated by ","
     $authors_row = $mysqli->query("SELECT GROUP_CONCAT(name) FROM Authorship INNER JOIN Authors USING(author_id) WHERE article_id = $article_id");
+
     if (!$article_row||$article_row->num_rows != 1||!$authors_row) {
       print ("<p class='message'>Article not found</p>");
     } else {
@@ -42,21 +45,21 @@
       $content = $article['content'];
       $date_posted = $article['date_posted'];
       $date_edited = $article['date_edited'];
+
       print("<div class='article'>");
         print("<h1>$title</h1>");
         //can add link to author later
         print("<p class='author'> Posted $date_posted by $authors </p>");
       print("</div>");
-?>
-
-<?php
 
       $content_arr=explode("|", $content); //paragraphs stored in database separated by "|"
+
       print("<div class='article'>");
       foreach ($content_arr as $para) {
         //image is signaled by image_id: a letter appended by two digits, like a01, c09.
         //Letter corresponds to the article, digits show the position of an image inside an article
         if (preg_match_all('/[a-z][\d][\d]/',$para, $matches)>0) {
+
           print( "<div class='image'>");
           foreach ($matches[0] as $image_id){
             $images = $mysqli->query("SELECT * FROM Images WHERE image_id = '$image_id'");
@@ -65,16 +68,20 @@
             } else {
               $image = $images->fetch_assoc();
               $file = "images/".$image['filename'];
-              //image resizing imformation can be stored in the database and applied here later
-              print("<img src='$file' alt='Image not found' class='img'>");
+              $width = $image['height'];
+              $height = $image['width'];
+              $width_pr = (!empty($width))?"width=".$width:"";
+              $height_pr = (!empty($height))?"height=".$height:"";
+              print("<img src='$file' alt='Image not found' class='img' $height_pr $width_pr>");
             }
           }
           print("</div>");
+
         } else {
-          //tags like <p> and <h2> are directly stored in database
-          print($para);
+          print($para);//tags like <p> and <h2> are directly stored in database
         }
       }
+
       print("</div>");
     }
   }
