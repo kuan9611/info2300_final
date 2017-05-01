@@ -18,6 +18,10 @@
     <script type="text/javascript" src="js/scripts.js"></script>
 		<?php if (function_exists('customHeader')) {customHeader();}?>
 	</head>
+
+<?php 
+
+      ?>
 	<body>
 		<div id="page">
 			<header>
@@ -43,19 +47,38 @@
 					<li><a href="#">Home</a></li>
 					<li><a href="#" aria-haspopup="true">Articles</a>
 						<ul>
-							<li><a href="#">First One</a></li>
-							<li><a href="#">Second</a></li>
-							<li><a href="#">Third</a></li>
-							<li><a href="#">Fourth</a></li>
-							<li><a href="#">Fifth</a></li>
+							<?php 
+									require_once 'includes/config.php';
+									$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+    							$articles_info = $mysqli->query("SELECT location,article_id FROM Articles");
+    							if (empty($articles_info)) {
+    								print("didnt work");
+							      print($mysqli->error);
+							    } else {
+										while ($row = $articles_info->fetch_assoc()) {
+											$article_id = $row['article_id'];
+											$title = $row['location'];
+											print("<li><a href='article.php?id=$article_id'>$title</a></li>");
+										}
+									}
+							?>
 						</ul>
 					</li>
 					<li><a href="#" aria-haspopup="true">Authors</a>
 						<ul>
-							<li><a href="#">Jane Doe</a></li>
-							<li><a href="#">John Doe</a></li>
-							<li><a href="#">Blah McBlah</a></li>
-							<li><a href="#">Bahd</a></li>
+							<?php 
+    							$authors_info = $mysqli->query("SELECT name,author_id FROM Authors");
+    							if (empty($authors_info)) {
+    								print("didnt work");
+							      print($mysqli->error);
+							    } else {
+										while ($row = $authors_info->fetch_assoc()) {
+											$author_id = $row['author_id'];
+											$name = $row['name'];
+											print("<li><a href='author.php?author=$author_id'>$name</a></li>");
+										}
+									}
+							?>
 						</ul>
 					</li>
 				</ul>
