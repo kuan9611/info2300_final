@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Cornell Policy Review</title>
 		<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>
+		<link rel="stylesheet" href="SlickNav/dist/slicknav.min.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600" rel="stylesheet">
@@ -13,22 +14,24 @@
 
 		<link rel="stylesheet" type="text/css" media="all" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="SlickNav/dist/jquery.slicknav.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
 		<?php if (function_exists('customHeader')) {customHeader();}?>
 	</head>
 	<body>
 		<div id="page">
 			<header>
-				<a class="logo" title="Cornell Policy Review" href="index.php"><span>Cornell Policy Review</span></a>
+				<a class="logo" title="Cornell Policy Review" href="http://www.cornellpolicyreview.com"><span>Cornell Policy Review</span></a>
 				<div id="topnav">
 					<a href="#" id="searchtoggl"><i class="fa fa-search fa-lg"></i></a>
 					<a href="#">Login</a>
 				</div>
 			</header>
-
-
+			<div id="mobilemenu">
+			</div>
 			<div id="searchbar" class="clearfix">
 				<form id="searchform" method="get" action="searchpage.php">
-				    <button type="submit" id="searchsubmit" class="fa fa-search fa-4x"></button>
+				    <button type="submit" id="searchsubmit" class="fa fa-search fa-3x"></button>
 				    <input type="search" class="search" name="locationsearch" id="locationsearch" placeholder="Location..." autocomplete="off">
 				    <input type="search" class="search"  name="tagsearch" id="taglocation" placeholder="Tag..." autocomplete="off">
 				</form>
@@ -36,7 +39,8 @@
 
 
 			<nav>
-				<ul>
+				<ul id="menu">
+					<li><a href="#">Home</a></li>
 					<li><a href="#" aria-haspopup="true">Articles</a>
 						<ul>
 							<li><a href="#">First One</a></li>
@@ -54,11 +58,9 @@
 							<li><a href="#">Bahd</a></li>
 						</ul>
 					</li>
-					<li><a href="#">CPR Website</a></li>
 				</ul>
 			</nav>
 			<div class="SpecEd">
 				<h1>Special Edition: GIS</h1>
 				<h2>Geographical Information System</h2>
 			</div>
-
