@@ -24,8 +24,11 @@
 		}
 
 		if ($result->fetch_row()) {
-			$_SESSION["admin"] = $username;
-			die("<p>Login successful!</p>");
+			$_SESSION["user"] = $username;
+			echo "<p>Sign-in successful!</p>";
+			echo '<script type="text/javascript">';
+      		echo 'window.location.href="index.php";';
+      		echo '</script>';
 		}
 
 		echo "<p>(!) Username or password incorrect</p>";
@@ -36,6 +39,7 @@
 
 	<h2>SIGN IN</h2>
 	<p>Log in to post comment on map (sign-up will be added later)</p>
+	<p>For testing, username: fp_wildcard2, password: 123456</p>
 	<form id="login-form" method="get">
 		<p>
 	        <label>Username:</label>

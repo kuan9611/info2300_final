@@ -16,21 +16,24 @@
 
 		<link rel="stylesheet" type="text/css" media="all" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="SlickNav/dist/jquery.slicknav.min.js"></script>
-    <script type="text/javascript" src="js/scripts.js"></script>
+    	<script src="SlickNav/dist/jquery.slicknav.min.js"></script>
+    	<script type="text/javascript" src="js/scripts.js"></script>
 		<?php if (function_exists('customHeader')) {customHeader();}?>
 	</head>
 
-<?php 
-
-      ?>
 	<body>
 		<div id="page">
 			<header>
 				<a class="logo" title="Cornell Policy Review" href="http://www.cornellpolicyreview.com"><span>Cornell Policy Review</span></a>
 				<div id="topnav">
 					<a href="#" id="searchtoggl"><i class="fa fa-search fa-lg"></i></a>
-					<a href="login.php">Login</a>
+					<?php 
+					if (isset($_SESSION["user"])) {
+						print("<a href='#' id='logout'>Sign out</a>");
+					} else {
+						print("<a href='login.php'>Sign in</a>");
+					}
+					?>
 				</div>
 			</header>
 			<div id="mobilemenu">
