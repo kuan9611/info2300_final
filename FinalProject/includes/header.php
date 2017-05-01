@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head lang="en">
@@ -28,7 +30,7 @@
 				<a class="logo" title="Cornell Policy Review" href="http://www.cornellpolicyreview.com"><span>Cornell Policy Review</span></a>
 				<div id="topnav">
 					<a href="#" id="searchtoggl"><i class="fa fa-search fa-lg"></i></a>
-					<a href="#">Login</a>
+					<a href="login.php">Login</a>
 				</div>
 			</header>
 			<div id="mobilemenu">

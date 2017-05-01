@@ -2,10 +2,9 @@ $(function(){
   var $searchlink = $('#searchtoggl i');
   var $searchbar  = $('#searchbar');
   
-  $('#topnav a').on('click', function(e){
-    e.preventDefault();
-    
-    if($(this).attr('id') == 'searchtoggl') {
+  $('#searchtoggl').on('click', function(e){
+      e.preventDefault();
+
       if(!$searchbar.is(":visible")) { 
         // if invisible we switch the icon to appear collapsable
         $searchlink.removeClass('fa-search').addClass('fa-search-minus');
@@ -17,7 +16,7 @@ $(function(){
       $searchbar.slideToggle(300, function(){
         // callback after search bar animation
       });
-    }
+      
   });
   
   $('#searchform').submit(function(e){
@@ -76,7 +75,7 @@ $(document).ready(function () {
     $("#commentBox").hide();
   });
   $("#postComment").on("click", function() {
-    marker.bindPopup($("#commentText").val());
+    var popup = marker.bindPopup($("#commentText").val());
     $("#commentBox").hide();
     markers.push(marker);
     map.removeLayer(marker);
@@ -84,6 +83,7 @@ $(document).ready(function () {
       map.removeLayer(commentLayer);
       commentLayer = L.layerGroup(markers);
       commentLayer.addTo(map);
+      popup.openPopup();
     }
     marker = null;
   });
