@@ -25,6 +25,9 @@ $(function(){
   });
 });
 
+$(function(){
+  $('#menu').slicknav({appendTo: '#mobilemenu'});
+});
 
 $(document).ready(function () {
 
