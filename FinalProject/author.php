@@ -8,9 +8,9 @@
     print ("<p class='message'>Author not found</p>");
   } else {
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-    $author_row = $mysqli->query("SELECT * FROM authors WHERE author_id = $author_id");
+    $author_row = $mysqli->query("SELECT * FROM Authors WHERE author_id = $author_id");
     //get the names of authors (in case more than one), concatenated by ","
-    $article_row = $mysqli->query("SELECT title, article_id FROM articles INNER JOIN authorship USING(article_id) INNER JOIN authors USING(author_id) WHERE author_id = $author_id");
+    $article_row = $mysqli->query("SELECT title, article_id FROM Articles INNER JOIN Authorship USING(article_id) INNER JOIN Authors USING(author_id) WHERE author_id = $author_id");
     if (!$author_row) {
     	print ("<p class='message'>Author not found</p>");
   	} else {
