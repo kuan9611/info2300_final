@@ -232,12 +232,12 @@ nav ul ul ul {
 	position: fixed;
 	height: 4em;
 	width: 5%;
-	min-width: 5em;
+	min-width: 6em;
 	top: 60%;
 	left: -40%;
 	text-decoration: none;
 	background-color: #b00d10;
-	opacity: 60%;
+	opacity: .6;
 	border: none;
 	color: white;
 	border-radius: 0 10px 10px 0px;
