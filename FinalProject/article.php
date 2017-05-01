@@ -79,51 +79,25 @@
     }
   }
 ?>
-<button id="maptoggle">Toggle Map</button>
-<button id="leaveComment">Leave a Comment</button>
+
 <div id="mapcontainer">
   <div id="map"></div>
 </div>
+<button id="maptoggle">Toggle Map</button>
+<button id="leaveComment">Leave a Comment</button>
 
-
-
-<script>
-  // to draw a different webmap, just append its id instead
-  // webmap.html?id=13750b8b548d48bfa99a9731f2a93ba0
-
-  var webmapId = '22c504d229f14c789c5b49ebff38b941'; // Default WebMap ID
-
-  var webmap = L.esri.webMap(webmapId, { map: L.map("map") });
-
-  webmap.on('load', function() {
-      var overlayMaps = {};
-      webmap.layers.map(function(l) {
-          overlayMaps[l.title] = l.layer;
-      });
-      L.control.layers({}, overlayMaps, {
-          position: 'bottomleft'
-      }).addTo(webmap._map);
-  });
-
-	L.control.mousePosition().addTo(webmap._map);
-	webmap._map.on("click", function(e) {
-		console.log(e.latlng);
-	});
-
-  function getIdfromUrl() {
-    var urlParams = location.search.substring(1).split('&');
-    for (var i=0; urlParams[i]; i++) {
-        var param = urlParams[i].split('=');
-        if(param[0] === 'id') {
-            webmapId = param[1]
-        }
-    }
-  }
-</script>
+<div id="commentBox">
+  <form method="post">
+    Comment:<br>
+    <input type="text" name="firstname" value="Mickey">
+    <br>
+    <input type="button" id="cancelComment" value="Cancel">
+    <input type="button" id="postComment" value="Post">
+  </form>
+</div>
 
 <div id="disqus_thread"></div>
 <script>
-
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/

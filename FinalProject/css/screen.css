@@ -224,6 +224,10 @@ nav ul ul ul {
 	margin: 0;
 }
 
+.leaflet-control-attribution {
+	width: 60%;
+}
+
 #leaveComment {
 	position: fixed;
 	height: 4em;
@@ -495,9 +499,36 @@ nav > ul > li > a[aria-haspopup="true"]::after {
 html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
 
+/* Comment */
+#commentBox {
+	position: fixed;
+	display: none;
+	bottom: 60%;
+	left: 50%;
+	padding: 15px;
+	background-color: rgba(255,255,255,.8);
+	border-radius: 8px;
+	z-index: 999;
+}
+#commentBox form input {
+	padding: 3px 5px;
+	margin: 5px;
+}
 
-
-
+#disqus_thread {
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+}
+#disqus_thread:after {
+	content: "";
+	display: block;
+	height: 55px;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	background: white;
+}
 
 
 
