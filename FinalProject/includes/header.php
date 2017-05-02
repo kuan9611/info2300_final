@@ -9,6 +9,7 @@
 		<link rel='stylesheet' type='text/css' href='css/bootstrap.min.css'>
 		<link rel="stylesheet" href="SlickNav/dist/slicknav.min.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="css/screen.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600" rel="stylesheet">
 		<link href=https://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,700,300 rel="stylesheet">
