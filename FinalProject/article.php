@@ -112,7 +112,7 @@
 
 var disqus_config = function () {
 //this.page.url = PAGE_URL;  default would be window.location.href
-this.page.identifier = 1; // Can use article id
+<?php echo 'this.page.identifier ='.$article_id.';' ?> // Can use article id
 };
 
 (function() {
