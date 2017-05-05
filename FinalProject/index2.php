@@ -23,11 +23,44 @@ function customHeader(){
   }
 
   include_once("includes/header.php");
+  
 ?>
 
-
     <div id="slideShow">
-      <div class="mySlides fade">
+      <?php
+        require_once 'includes/config.php';
+        $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+        if ($mysqli->error) {
+          print($mysqli->error);
+          exit();
+        }
+        $articles = $mysqli->query("SELECT * FROM Articles");
+        if (!$articles) {
+          print($mysqli->error);
+          exit();
+        }
+
+        $rows= array();
+        while($article = $articles->fetch_assoc()){
+              $article_id = $article["article_id"];
+              $title = $article['title'];
+              $titleTrimmed = str_replace(' ', '_', $title);
+              $slide_id = $article['slide'];
+              $slide_info = $mysqli->query("SELECT * FROM Images WHERE image_id = '$slide_id'");
+              $slide = $slide_info->fetch_assoc();
+              $slide_path = "images/".$slide['filename'];
+              $rows[]=$article;
+
+              echo "<div class=\"mySlides fade\">
+                        <a href='article.php?id=$article_id&title=$titleTrimmed'>
+                          <img src=\"$slide_path\" alt=\"image not found\">
+                        </a>
+                    </div>";
+        }
+
+
+      ?>
+      <!--<div class="mySlides fade">
         <img src="https://designschool.canva.com/wp-content/uploads/sites/2/2016/04/Antique-Map.jpg" >
         <div class="text">Caption Text</div>
       </div>
@@ -50,7 +83,7 @@ function customHeader(){
       <div class="mySlides fade">
         <img src="http://img.microsiervos.com/mapacables2.jpg">
         <div class="text">Caption Five</div>
-      </div> 
+      </div> -->
 
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
       <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -69,7 +102,29 @@ function customHeader(){
         <div class="division_title">
         <h2>Feature Articles</h2>
         </div>
-        <div class = "entry">
+        <?php 
+          foreach ($rows as $row){
+
+              $article_id = $row["article_id"];
+              $title = $row['title'];
+              $titleTrimmed = str_replace(' ', '_', $title);
+              $thumbnail_id = $row['thumbnail'];
+              $thumbnail_info = $mysqli->query("SELECT * FROM Images WHERE image_id = '$thumbnail_id'");
+              $thumbnail = $thumbnail_info->fetch_assoc();
+              $thumbnail_path = "images/".$thumbnail['filename'];
+              
+              echo "<div class=\"entry\">
+                      <div class=\"thumbnail\">
+                        <img src=\"$thumbnail_path\" alt=\"image not found\">
+                      </div>
+                      <div class=\"article_intro\">
+                        <h3><a href='article.php?id=$article_id&title=$titleTrimmed'>$title</a></h3>
+                      </div>
+                    </div>";
+          }
+
+        ?>
+<!--        <div class = "entry">
           <div class="thumbnail">
             <img src="images/CPRLogo2.jpg">
           </div>
@@ -112,7 +167,7 @@ function customHeader(){
           <div class="article_intro">
             <h3>xxxxxxxxxxxxxxxxx</h3>
           </div>
-        </div>
+        </div> -->
          
       </div>
 
