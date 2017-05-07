@@ -52,7 +52,6 @@
           $authorname = $row['name'];
           $authorlink = $row['author_id'];
           $authorfull[] = "<a href='author.php?author=$authorlink'>$authorname</a>";
-          ++$authorcount;
         }
         $authorlist = implode(", ", $authorfull);
         print_r($authorlist);
