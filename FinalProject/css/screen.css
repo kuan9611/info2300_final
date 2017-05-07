@@ -147,7 +147,7 @@ nav ul li a {
 	color: #fff;
 	padding: .5em 1em;
 	text-decoration: none;
-	width: 5em;
+	width: 7em;
 	position: relative;
 
 }
@@ -385,15 +385,15 @@ html[xmlns] .clearfix { display: block; }
 }
 
 
--/* Images in Article */
--.image {
--	text-align: center;
--}
+/* Images in Article */
+.image {
+	text-align: center;
+}
 
--.img {
--	display: inline-block;
--	padding: 0 20px;
--}
+.img {
+	display: inline-block;
+	padding: 0 20px;
+}
 
 /* Media Queries */
 
