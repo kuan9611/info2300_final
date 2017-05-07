@@ -34,22 +34,29 @@
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     $article_row = $mysqli->query("SELECT * FROM Articles WHERE article_id = $article_id");
     //get the names of authors (in case more than one), concatenated by ","
-    $authors_row = $mysqli->query("SELECT GROUP_CONCAT(name) FROM Authorship INNER JOIN Authors USING(author_id) WHERE article_id = $article_id");
+    $authors_row = $mysqli->query("SELECT name, author_id FROM Authorship INNER JOIN Authors USING(author_id) WHERE article_id = $article_id");
     $tags_row = $mysqli->query("SELECT * FROM Tags JOIN Tagged USING(tag_id) WHERE article_id = $article_id");
     if (!$article_row||$article_row->num_rows != 1||!$authors_row||!$tags_row) {
       print ("<p class='message'>Article not found</p>");
     } else {
       $article = $article_row->fetch_assoc();
-      $authors = $authors_row->fetch_row()[0];
       $title = $article['title'];
       $content = $article['content'];
       $date_posted = $article['date_posted'];
       $date_edited = $article['date_edited'];
-
+      $authorfull = array();
       print("<div class='article'>");
         print("<h1>$title</h1>");
-        //can add link to author later
-        print("<p class='author'> Posted $date_posted by $authors </p>");
+        print("<p class='author'> Posted $date_posted by ");
+        while($row = $authors_row->fetch_assoc()) {
+          $authorname = $row['name'];
+          $authorlink = $row['author_id'];
+          $authorfull[] = "<a href='author.php?author=$authorlink'>$authorname</a>";
+          ++$authorcount;
+        }
+        $authorlist = implode(", ", $authorfull);
+        print_r($authorlist);
+        print("</p>");
       print("</div>");
 
       $content_arr=explode("|", $content); //paragraphs stored in database separated by "|"
@@ -68,11 +75,11 @@
             } else {
               $image = $images->fetch_assoc();
               $file = "images/".$image['filename'];
-              $width = $image['height'];
-              $height = $image['width'];
+              $width = $image['width'];
+              $height = $image['height'];
               $width_pr = (!empty($width))?"width=".$width:"";
               $height_pr = (!empty($height))?"height=".$height:"";
-              print("<img src='$file' alt='Image not found' class='img' $height_pr $width_pr>");
+              print("<img src='$file' alt='Image not found' class='img' $height_pr $width_pr style='min-width:400px'>");
             }
           }
           print("</div>");
