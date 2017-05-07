@@ -28,7 +28,7 @@
 				<a class="logo" title="Cornell Policy Review" href="http://www.cornellpolicyreview.com"><span>Cornell Policy Review</span></a>
 				<div id="topnav">
 					<a href="#" id="searchtoggl"><i class="fa fa-search fa-lg"></i></a>
-					<?php 
+					<?php
 					if (isset($_SESSION["user"])) {
 						print("<a href='#' id='logout'>Sign out</a>");
 					} else {
@@ -40,20 +40,19 @@
 			<div id="mobilemenu">
 			</div>
 			<div id="searchbar" class="clearfix">
-				<form id="searchform" method="get" action="searchpage.php">
+				<form id="searchform" method="get" action="search.php">
 				    <button type="submit" id="searchsubmit" class="fa fa-search fa-3x"></button>
-				    <input type="search" class="search" name="locationsearch" id="locationsearch" placeholder="Location..." autocomplete="off">
-				    <input type="search" class="search"  name="tagsearch" id="taglocation" placeholder="Tag..." autocomplete="off">
+				    <input type="search" class="search" name="search" id="locationsearch" placeholder="Search Anything" autocomplete="off">
 				</form>
 			</div>
 
 
 			<nav>
 				<ul id="menu">
-					<li><a href="#">Home</a></li>
+					<li><a href="index.php">Home</a></li>
 					<li><a href="#" aria-haspopup="true">Articles</a>
 						<ul>
-							<?php 
+							<?php
 									require_once 'includes/config.php';
 									$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     							$articles_info = $mysqli->query("SELECT location,article_id FROM Articles");
@@ -72,7 +71,7 @@
 					</li>
 					<li><a href="#" aria-haspopup="true">Authors</a>
 						<ul>
-							<?php 
+							<?php
     							$authors_info = $mysqli->query("SELECT name,author_id FROM Authors");
     							if (empty($authors_info)) {
     								print("didnt work");

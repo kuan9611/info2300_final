@@ -35,8 +35,8 @@
     $article_row = $mysqli->query("SELECT * FROM Articles WHERE article_id = $article_id");
     //get the names of authors (in case more than one), concatenated by ","
     $authors_row = $mysqli->query("SELECT GROUP_CONCAT(name) FROM Authorship INNER JOIN Authors USING(author_id) WHERE article_id = $article_id");
-
-    if (!$article_row||$article_row->num_rows != 1||!$authors_row) {
+    $tags_row = $mysqli->query("SELECT * FROM Tags JOIN Tagged USING(tag_id) WHERE article_id = $article_id");
+    if (!$article_row||$article_row->num_rows != 1||!$authors_row||!$tags_row) {
       print ("<p class='message'>Article not found</p>");
     } else {
       $article = $article_row->fetch_assoc();
@@ -80,6 +80,15 @@
         } else {
           print($para);//tags like <p> and <h2> are directly stored in database
         }
+      }
+      print("Tags: ");
+      $count = 0;
+      while ($row = $tags_row->fetch_assoc()) {
+        if ($count!=0) print(", ");
+        else $count = 1;
+        $id = $row['tag_id'];
+        $tag = $row['tag'];
+        print("<a href='search.php?tag=$id'>$tag</a> ");
       }
 
       print("</div>");
