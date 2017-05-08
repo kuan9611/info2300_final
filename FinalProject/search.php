@@ -18,18 +18,29 @@
       while ($row = $result->fetch_assoc()) {
       	$article_id = $row['article_id'];
         $title = $row['title'];
-        $location = $row['location'];
         $authors_row= $mysqli->query("SELECT author_id, name FROM Authorship INNER JOIN Authors USING(author_id) WHERE article_id = $article_id");
-        $authors = $authors_row->fetch_assoc();
-        $author = $authors['name'];
-        $author_id = $authors['author_id'];
-        print( "<div class='results'>
-                  <p><a href='article.php?id=$article_id'>$title</a></p>
-                  <p>Location: $location</p>
-                  <p>Author: $author</p>
-                </div>");
+        $authorfull = array();
+        while($row = $authors_row->fetch_assoc()) {
+          $authorname = $row['name'];
+          $authorlink = $row['author_id'];
+          $authorfull[] = "<a href='author.php?author=$authorlink'>$authorname</a>";
         }
-      print("<h3>Authors:</h3>");
+        $authorlist = implode(", ", $authorfull);
+
+        $thumbnail_row = $mysqli->query("SELECT * FROM Images JOIN Articles ON image_id = thumbnail WHERE article_id = $article_id");
+        $thumbnail = $thumbnail_row->fetch_assoc();
+        $thumbnail_path = "images/".$thumbnail['filename'];
+        print( "<div class='results'>");
+          print("<div class='thumbnail'><img src='$thumbnail_path' alt='image not found' width=150></div>");
+          print("<div class='article_intro'>");
+            print("<p><a href='article.php?id=$article_id'>$title</a><p>");
+            print("<p>Authors: $authorlist</p>");
+          print("</div>");
+        print("</div>");
+      }
+
+
+      print("<br><h3>Authors:</h3>");
       $sql = "SELECT * FROM Authors WHERE name LIKE ? OR description LIKE ?";
       $stmt = $mysqli->prepare($sql);
       $stmt -> bind_param('ss', $pattern, $pattern);
@@ -47,6 +58,7 @@
                   <p>$name   <a href='author.php?author=$id'>Go to page</a></p>
                   <p>Article: <a href='article.php?id=$article_id'>$article</a></p><br>
                 </div>");
+
       }
     }
 
@@ -73,15 +85,27 @@
         $article_id = $row['article_id'];
         $title = $row['title'];
         $location = $row['location'];
+
         $authors_row= $mysqli->query("SELECT author_id, name FROM Authorship INNER JOIN Authors USING(author_id) WHERE article_id = $article_id");
-        $authors = $authors_row->fetch_assoc();
-        $author = $authors['name'];
-        $author_id = $authors['author_id'];
-        print( "<div class='results'>
-                  <p><a href='article.php?id=$article_id'>$title</a></p>
-                  <p>Location: $location</p>
-                  <p>Author: $author</p>
-                </div>");
+        $authorfull = array();
+        while($row = $authors_row->fetch_assoc()) {
+          $authorname = $row['name'];
+          $authorlink = $row['author_id'];
+          $authorfull[] = "<a href='author.php?author=$authorlink'>$authorname</a>";
+        }
+        $authorlist = implode(", ", $authorfull);
+
+        $thumbnail_row = $mysqli->query("SELECT * FROM Images JOIN Articles ON image_id = thumbnail WHERE article_id = $article_id");
+        $thumbnail = $thumbnail_row->fetch_assoc();
+        $thumbnail_path = "images/".$thumbnail['filename'];
+
+        print( "<div class='results'>");
+          print("<div class='thumbnail'><img src='$thumbnail_path' alt='image not found' width=150></div>");
+          print("<div class='article_intro'>");
+            print("<p><a href='article.php?id=$article_id'>$title</a><p>");
+            print("<p>Authors: $authorlist</p>");
+          print("</div>");
+        print("</div>");
       }
     }
 
