@@ -4,170 +4,181 @@
 html {
 	width: 100%;
 }
-body { 
-	font-family: "Open Sans", sans-serif; 
-	font-size: 16px; 
-	font-weight: 300; 
-	margin: 0; 
-	padding: 0; 
+body {
+	font-family: "Open Sans", sans-serif;
+	font-size: 16px;
+	font-weight: 300;
+	margin: 0;
+	padding: 0;
 	height: 100%;
 	background: white;
 }
 
-#page { 
-	max-width: 100%; 
-	margin: 0 auto; 
-	position: relative; 
+#page {
+	max-width: 100%;
+	margin: 0 auto;
+	position: relative;
 	height: 100%;
 
 }
 
+/****for article.php********/
 .article {
 	width: 80%;
-	margin: 0 auto;
+	margin: 30px auto;
 }
 
 .article h1 {
 	text-align: center;
+	font-family: "Lato", sans-serif;
+	padding-top: .5em;
+	padding-bottom: .5em;
 }
 
 .article h2 {
 	color: #b00d10;
+	margin-top: 60px;
+	margin-bottom: 10px;
+	font-weight: bold;
 }
+
+
+
 /* Text */
 
-h1 { 
-	margin: 0 0 0 0; 
-	font-size: 2.75em; 
-	font-weight: 700; 
+h1 {
+	margin: 0 0 0 0;
+	font-size: 2.75em;
+	font-weight: 700;
 	color: black;
 }
-h2 { 
+h2 {
 	margin: 0;
-	font-size: 1.65em; 
-	font-weight: 500; 
-	line-height: 2em; 
+	font-size: 1.65em;
+	font-weight: 500;
+	line-height: 2em;
 	color: white;
 }
-h3 { 
-	margin: 0 0 .5em 0; 
-	font-size: 1.3em; 
-	font-weight: 700; 
-	color: #b00d10; 
+h3 {
+	margin: 0 0 .5em 0;
+	font-size: 1.3em;
+	font-weight: 700;
+	color: #b00d10;
 }
-h4 { 
-	margin: 0 0 1.5em 0; 
-	font-weight: 700; 
+h4 {
+	margin: 0 0 1.5em 0;
+	font-weight: 700;
 }
 
-p { 
-	margin: 0 0 1em 0; 
+p {
+	margin: 1em 0 1em 0;
+	color:black;
 }
 
 
 /* Header */
-header { 
-	height: 11em; 
+header {
+	height: 11em;
 	background: #b00d10;
-	margin 0; 
-	position: relative; 
+	margin 0;
+	position: relative;
 	/*border-radius: 0 0 .5em .5em;*/
 	box-shadow: 0px 2px 5px #888888;
 }
 
-.logo { 
-	position: absolute; 
-	display: block; 
-	width: 9em; 
-	height: 9em; 
-	background: url(../images/CPRLogo2.jpg) no-repeat 0 0; 
-	background-size: contain; 
+.logo {
+	position: absolute;
+	display: block;
+	width: 9em;
+	height: 9em;
+	background: url(../images/CPRLogo2.jpg) no-repeat 0 0;
+	background-size: contain;
 	top: 1em;
-	left: 2em; 
+	left: 2em;
 }
 
-.logo span { 
-	display: none; 
+.logo span {
+	display: none;
 }
 
-.SpecEd { 
-	width: 42%; 
-	position: absolute; 
+.SpecEd {
+	width: 42%;
+	position: absolute;
 	top: 3.75em;
 	left: 13em;
 	font-family: 'Cormorant Garamond', sans-serif;
 }
 
-.SpecEd h1 { 
-	line-height: 0.5em; 
-	margin: 0 0 30px 0; 
+.SpecEd h1 {
+	line-height: 0.5em;
+	margin: 0 0 30px 0;
 }
 
-.SpecEd h2 { 
-	line-height: 0.5em; 
-	margin: 0em; 
+.SpecEd h2 {
+	line-height: 0.5em;
+	margin: 0em;
 }
 
 
 /* Navigation */
-nav {  
-	position: absolute; 
-	top: 7.5em; 
-	height: 3em; 
+nav {
+	position: absolute;
+	top: 7.5em;
+	height: 3em;
 	margin: 0 auto;
 	right: 4em;
 }
 
-nav a:visited { 
-	color: #fff; 
+nav a:visited {
+	color: #fff;
 }
 
-nav ul { 
-	list-style: none; 
-	margin: 0; 
+nav ul {
+	list-style: none;
+	margin: 0;
 	padding: 0;
 	margin: 0 auto;
 	font-size: 1.3em;
 }
-nav ul::after { 
-	content: ""; 
-	display: block; 
-	clear: both; 
+nav ul::after {
+	content: "";
+	display: block;
+	clear: both;
 }
 
-nav ul li:hover { 
-	background-color: #2b0306; 
+nav ul li:hover {
+	background-color: #2b0306;
 }
-nav ul li:hover > ul { 
-	display: block; 
-}
-
-nav ul li a { 
-	display: inline-block; 
-	color: #fff; 
-	padding: .5em 1em; 
-	text-decoration: none; 
-	width: 5em; 
-	position: relative; 
-
-}
-nav ul li a:hover { 
-	background-color: #79131a; 
+nav ul li:hover > ul {
+	display: block;
 }
 
-nav ul ul { 
-	display: none; 
-	position: absolute; 
-	top: 100%; 
+nav ul li a {
+	display: inline-block;
+	color: #fff;
+	padding: .5em 1em;
+	text-decoration: none;
+	width: 7em;
+	position: relative;
+
+}
+nav ul li a:hover {
+	background-color: #79131a;
+}
+
+nav ul ul {
+	display: none;
+	position: absolute;
+	top: 100%;
 	background-color: #2b0306;
 	font-size: 1em;
 }
-nav ul ul li { 
-	position: relative; 
+nav ul ul li {
+	position: relative;
 }
-nav ul ul ul { 
-	left: 100%; 
-	top: 0; 
+nav ul ul ul {
+	left: 100%;
+	top: 0;
 }
 
 .slicknav_menu {
@@ -178,7 +189,7 @@ nav ul ul ul {
 #topnav {
 	float: right;
 	color: white;
-	font-family: "Open Sans", sans-serif; 
+	font-family: "Open Sans", sans-serif;
 	margin-top: 1em;
 	margin-right: 2em;
 }
@@ -201,8 +212,8 @@ nav ul ul ul {
 	z-index: 997;
 }
 
-#map { 
-	position: relative; 
+#map {
+	position: relative;
 	height: 100%;
 	width: 99%;
 	margin: 0 auto;
@@ -249,15 +260,15 @@ nav ul ul ul {
 
 
 /* top level */
-nav > ul { 
-	padding-left: 200px; 
+nav > ul {
+	padding-left: 200px;
 }
-nav > ul > li { 
-	float: left; 
+nav > ul > li {
+	float: left;
 }
 nav > ul > li > a {
-	padding: 10px 20px 15px 20px; 
-	width: auto; 
+	padding: 10px 20px 15px 20px;
+	width: auto;
 }
 
 nav a[aria-haspopup="true"]::after {
@@ -286,10 +297,13 @@ nav > ul > li > a[aria-haspopup="true"]::after {
 #searchbar {
   display: none;
   margin: 0 auto;
-  width: 60%;
-  height: 124px;
-  left: 20%;
+  width: 40%;
+  height: 70px;
   background: white;
+  position: absolute;
+  top: 0px;
+  right: 10em;
+  border-radius: 0 0 10px 10px;
   /*-webkit-box-shadow: -1px 2px 2px rgba(0,0,0,0.2);
   -moz-box-shadow: -1px 2px 2px rgba(0,0,0,0.2);
   box-shadow: -1px 2px 2px rgba(0,0,0,0.2);*/
@@ -305,36 +319,37 @@ nav > ul > li > a[aria-haspopup="true"]::after {
   padding: 0;
   height: 60px;
   line-height: 60px;
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 1.4em;
   color: #676767;
+  padding-left: 1em
 }
 
 #searchsubmit {
   display: block;
   float: right;
-  margin-top: .5em;
+  margin-top: .15em;
   background: none;
-  color: #717171;
+  color: #b00d10;
   border: 0;
   outline: none;
   cursor: pointer;
 }
 
 .fa-lg {
+
 	color: white;
 	margin: 1em;
 }
 .clearfix:after { content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0; }
 .clearfix { display: inline-block; }
- 
+
 html[xmlns] .clearfix { display: block; }
 * html .clearfix { height: 1%; }
 
-/* Bio Pic */
+/* for author.php Bio Pic */
 
 .authorinfo {
-	margin: 0 auto;
+	margin: 40px auto;
 	width: 50%;
 }
 
@@ -343,14 +358,27 @@ html[xmlns] .clearfix { display: block; }
 	flex-wrap: wrap;
 }
 
+#authorcard h1 {
+	margin-top: 90px;
+	font-size: 1.5em;
+}
+
 #authorpic img {
 	height: 12em;
 	width: 12em;
-
+	margin-right:60px;
 }
 
-#authorbio h2 {
+#authorbio {
+	margin-top: 50px;
+}
+
+#authorbio h3 {
 	color: #b00d10;
+}
+
+#authorarticle {
+	margin-top: 20px;
 }
 
 /* Comment */
@@ -383,36 +411,70 @@ html[xmlns] .clearfix { display: block; }
 	bottom: 0;
 	background: white;
 }
- 
- 
--/* Images in Article */
--.image {
--	text-align: center;
--}
- 
--.img {
--	display: inline-block;
--	padding: 0 20px;
--}
+
+
+/* Images in Article */
+.image {
+	text-align: center;
+}
+
+.img {
+	display: inline-block;
+	padding: 0 20px;
+}
+
+/* Search Results */
+#searchresults{
+	width: 80%;
+	margin: 40px auto;
+	padding: 50px;
+}
+
+#searchresults h3{
+	color: black;
+}
+
+.results{
+	padding: 10px 50px;
+	margin-top: 30px;
+}
+
+.results p:first-child {
+	font-weight: bold;
+}
 
 /* Media Queries */
 
-@media screen and (max-width: 1000px) { 
+@media screen and (max-width: 1260px) {
+	#searchbar {
+		position: relative;
+		top: 0px;
+  	right: 0;
+  	width: 60%;
+  	background: none;
+	}
+	.search {
+		background: none;
+	}
+	.searchsubmit {
+		background: none;
+	}
+@media screen and (max-width: 1000px) {
 	.authorinfo {
 		margin: 0 auto;
 		width: 80%;
-	}	
+	}
 	/* Header */
 	.SpecEd {
 		left: 11em;
 	}
 
-	.SpecEd h1 { 
-		font-size: 2em; 
+	.SpecEd h1 {
+		font-size: 2em;
 		line-height: .2em;
 	}
-	.SpecEd h2 { 
-		font-size: 1.2em; 
+	.SpecEd h2 {
+		font-size: 1.2em;
 	}
 	#searchbar {
 		height: 100px;
@@ -424,70 +486,85 @@ html[xmlns] .clearfix { display: block; }
 		color: white;
 		font-size: 2em;
 	}
-	.search {
-		font-size: 1em;
+	.article {
+		width:90%;
 	}
 }
 
 
-@media screen and (max-width: 825px) { 
+@media screen and (max-width: 845px) {
 
-	h1 { 
-		font-size: 2.2em; 
+	h1 {
+		font-size: 2.2em;
+	}
+	#searchbar {
+		width: 70%;
+	}
+	.search {
+		width: 60%;
+		font-size: 1em;
+	}
+	.img {
+		padding: 0;
+		width: 100% !important;
+		height: auto !important;
 	}
 }
 	/* Header */
 
 @media screen and (max-width: 760px) {
 
-	h1 { 
-		font-size: 2.4em; 
+	h2 {
+		font-size: 1.4em;
 	}
-	h2 { 
-		font-size: 1.4em; 
-	}
-	h3 { 
-		font-size: 1.1em; 
+	h3 {
+		font-size: 1.1em;
 	}
 
-	nav { 
-		padding-top: 0; 
+	nav {
+		padding-top: 0;
 	}
+	.article {
+		width: 95%;
+	}
+
 }
 
 
 @media screen and (max-width: 665px) {
-	
+	#searchbar {
+		width: 90%;
+	}
 	.logo {
 		width: 9em;
 		height: 4em;
-		left: 0px; 
+		left: 0px;
 		background-position: 1em center;
 	}
 
-	.SpecEd {  
+	.SpecEd {
 		top: 1em;
-		left: 6em; 
+		left: 6em;
 	}
 
 	.SpecEd h1 {
-		line-height: 1em; 
+		line-height: 1em;
 	}
 
 	.SpecEd h2 {
 		display: none;
 	}
 
-	h1 { 
-		font-size: 2em; 
+	h1 {
+		font-size: 2em;
 	}
-	h3 { 
-		margin-bottom: 0; 
+	h3 {
+		margin-bottom: 0;
 	}
 
-	header { 
-		height: 7em; 
-		background-position: left top; 
+	header {
+		height: 7em;
+		background-position: left top;
 		box-shadow: none;
 	}
   #menu {
@@ -510,14 +587,14 @@ html[xmlns] .clearfix { display: block; }
 
 @media screen and (max-width: 425px) {
 
-	header { 
-		height: 110px; 
+	header {
+		height: 110px;
 	}/*
-	.logo { 
+	.logo {
 		height: 4em;
-		width: 4em; 
-		no-repeat center center; 
-		background-size: 126px 126px; 
+		width: 4em;
+		no-repeat center center;
+		background-size: 126px 126px;
 	}
 
 	.SpecEd {
@@ -526,30 +603,24 @@ html[xmlns] .clearfix { display: block; }
 		top: 1em;
 		text-align: center;
 	}
-	
+
 	.SpecEd h1 {
 		font-size: 1em;
 		margin-bottom: 10px;
 		display: inline;
 	}
-	
+
 	.SpecEd a.btn {
 		padding: 2px 30px;
 		font-size: .8em;
 	}
-	
-	.SpecEd a.btn span { 
-		display: none; 
+
+	.SpecEd a.btn span {
+		display: none;
 	}*/
-	
+
 
 }
-
-
-
-
-
-
 
 
 
