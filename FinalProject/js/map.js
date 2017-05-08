@@ -30,6 +30,7 @@ $(document).ready(function () {
   }
 
   var marker = null;
+  console.log("jello");
   var markers = [];
   var commentLayer;
 
@@ -45,18 +46,35 @@ $(document).ready(function () {
     $("#commentBox").hide();
   });
   $("#postComment").on("click", function() {
-    var popup = marker.bindPopup($("#commentText").val());
-    $("#commentBox").hide();
-    markers.push(marker);
-    map.removeLayer(marker);
-    if ($("#hideComment").is(":visible")) {
-      map.removeLayer(commentLayer);
-      commentLayer = L.layerGroup(markers);
-      commentLayer.addTo(map);
-      popup.openPopup();
-    }
-    marker = null;
+    var content = $("#commentText").val();
+
+    var request = $.ajax({
+      url: "includes/comment.php",
+      type: "POST",
+      data: { 'cmt_content': content,
+              'cmt_lat': marker.getLatLng().lat,
+              'cmt_lng': marker.getLatLng().lng,
+              'cmt_article': articleId }
+    });
+    request.done(function(resp) {
+      var resp = $.parseJSON(resp);
+      console.log(resp.message);
+      if (resp.success) {
+        var popup = marker.bindPopup(resp.content);
+        $("#commentBox").hide();
+        markers.push(marker);
+        map.removeLayer(marker);
+        if ($("#hideComment").is(":visible")) {
+          map.removeLayer(commentLayer);
+          commentLayer = L.layerGroup(markers);
+          commentLayer.addTo(map);
+          popup.openPopup();
+        }
+        marker = null;
+      }
+    });
   });
+
   map.on('move', function () {
     if (marker !== null) {
       marker.setLatLng(map.getCenter());

@@ -27,6 +27,7 @@
 <?php
   require_once 'includes/config.php';
   $article_id = trim(filter_input( INPUT_GET, "id", FILTER_VALIDATE_INT));
+  echo "<script> var articleId = $article_id; </script>";
 
   if (empty($article_id)) {
     print ("<p class='message'>Article not found</p>");
@@ -91,7 +92,11 @@
   <div id="map"></div>
 </div>
 <button id="maptoggle">Toggle Map</button>
-<button id="leaveComment">Leave a Comment</button>
+<?php 
+if (isset($_SESSION["user"])) {
+  print("<button id='leaveComment'>Leave a Comment</button>");
+}
+?>
 <button id="showComment">Show Comments</button>
 <button id="hideComment">Hide Comments</button>
 
@@ -112,7 +117,8 @@
 
 var disqus_config = function () {
 //this.page.url = PAGE_URL;  default would be window.location.href
-<?php echo 'this.page.identifier ='.$article_id.';' ?> // Can use article id
+<?php echo "this.page.identifier = $article_id ;"; 
+      echo "this.page.title = ".json_encode($title)." ;"; ?>
 };
 
 (function() {
