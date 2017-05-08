@@ -115,6 +115,20 @@ if (isset($_SESSION["user"])) {
 <button id="showComment">Show Comments</button>
 <button id="hideComment">Hide Comments</button>
 
+<script>
+  var markers = [];
+  <?php
+  $comments = $mysqli->query("SELECT * FROM Comments
+                              WHERE article_id =".$article_id);
+  while ($comment = $comments->fetch_assoc()) {
+    print("var marker = L.marker([{$comment['y_coord']},
+                                  {$comment['x_coord']}]);\n");
+    print("marker.bindPopup('".$comment['content']."');\n");
+    print("markers.push(marker);\n");
+  }  
+  ?>
+</script>
+
 <div id="commentBox">
   <form method="post">
     <textarea id="commentText" name="text_c" placeholder="Enter comment ..."></textarea>

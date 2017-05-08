@@ -30,8 +30,6 @@ $(document).ready(function () {
   }
 
   var marker = null;
-  console.log("jello");
-  var markers = [];
   var commentLayer;
 
   $("#leaveComment").on("click", function() {
