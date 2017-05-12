@@ -41,7 +41,7 @@ if ($stmt->prepare($query)) {
 if ($mysqli->affected_rows > 0) {
 	echo json_encode(array(
         'success' => 1,
-        'content' => $content
+        'content' => '<b>'.$_SESSION["user"].'</b> said:<br>'.$content
     ));
 } else {
 	echo json_encode(array(

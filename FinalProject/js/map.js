@@ -56,7 +56,6 @@ $(document).ready(function () {
     });
     request.done(function(resp) {
       var resp = $.parseJSON(resp);
-      console.log(resp.message);
       if (resp.success) {
         var popup = marker.bindPopup(resp.content);
         $("#commentBox").hide();

@@ -123,7 +123,8 @@ if (isset($_SESSION["user"])) {
   while ($comment = $comments->fetch_assoc()) {
     print("var marker = L.marker([{$comment['y_coord']},
                                   {$comment['x_coord']}]);\n");
-    print("marker.bindPopup('".$comment['content']."');\n");
+    print("marker.bindPopup('<b>".$comment['username'].
+                '</b> said:<br>'.$comment['content']."');\n");
     print("markers.push(marker);\n");
   }  
   ?>
