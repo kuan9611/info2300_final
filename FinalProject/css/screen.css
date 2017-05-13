@@ -123,7 +123,7 @@ header {
 /* Navigation */
 nav {
 	position: absolute;
-	top: 7.5em;
+	top: 8em;
 	height: 3em;
 	margin: 0 auto;
 	right: 4em;
@@ -138,7 +138,8 @@ nav ul {
 	margin: 0;
 	padding: 0;
 	margin: 0 auto;
-	font-size: 1.3em;
+	font-size: 1.1em;
+	line-height: 1.3;
 }
 nav ul::after {
 	content: "";
@@ -360,8 +361,9 @@ html[xmlns] .clearfix { display: block; }
 /* for author.php Bio Pic */
 
 .authorinfo {
-	margin: 40px auto;
-	width: 50%;
+	margin: 2em auto;
+	margin-right: 10%;
+	width: 70%;
 }
 
 #authorcard {
@@ -374,14 +376,19 @@ html[xmlns] .clearfix { display: block; }
 	font-size: 1.5em;
 }
 
+#authorpic {
+	float: left;
+}
+
 #authorpic img {
-	height: 12em;
-	width: 12em;
-	margin-right:60px;
+	height: 16em;
+	padding: 0;
+	padding-right: 1em;
 }
 
 #authorbio {
-	margin-top: 50px;
+	float: right;
+	width: 60%;
 }
 
 #authorbio h3 {
@@ -390,6 +397,7 @@ html[xmlns] .clearfix { display: block; }
 
 #authorarticle {
 	margin-top: 20px;
+	width: 100%;
 }
 
 /* Comment */
@@ -473,6 +481,7 @@ html[xmlns] .clearfix { display: block; }
 @media screen and (max-width: 1000px) {
 	.authorinfo {
 		margin: 0 auto;
+		margin-top: 1em;
 		width: 80%;
 	}
 	/* Header */
@@ -519,6 +528,27 @@ html[xmlns] .clearfix { display: block; }
 		padding: 0;
 		width: 100% !important;
 		height: auto !important;
+	}
+	#authorpic {
+		margin: 0 auto;
+	}
+	#authorcard {
+		margin: 0 auto;
+		text-align: center;
+	}
+	#authorpic img {
+		width: 50% !important;
+		padding-right: 0;
+	}
+	.authorinfo {
+		width: 90%;
+	}
+	#authorbio {
+		width: 100%;
+	}
+	#authorarticle {
+		margin-top: 0;
+		width: 100%;
 	}
 }
 	/* Header */
@@ -589,8 +619,11 @@ html[xmlns] .clearfix { display: block; }
   	color: #b00d10;
   }
   .authorinfo {
-		width: 100%;
+		width: 90%;
 		margin: 0 auto;
+	}
+	#authorpic img {
+		width: 70% !important;
 	}
 }
 
@@ -600,7 +633,11 @@ html[xmlns] .clearfix { display: block; }
 
 	header {
 		height: 110px;
-	}/*
+	}
+	#authorpic img {
+		width: 100% !important;
+	}
+	/*
 	.logo {
 		height: 4em;
 		width: 4em;
