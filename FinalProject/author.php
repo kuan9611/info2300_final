@@ -24,12 +24,13 @@
       $img = $image->fetch_assoc();
       $biopic = $img['filename'];
 			print("<div class='authorinfo'>");
-				print("<div id='authorcard')>");
+				print("<div id='authorcard'>");
 					print("<div id='authorpic'>");
-		    		print("<img src='images/$biopic' alt='Image not found' class='img'>");
-					print("</div>");
-					print("<h1>$name</h1>");
-						print("<div id='authorbio'><h3>Biography</h3> <p>$description</p>");
+            if ($biopic == "default.png") { print(""); }
+            else {print("<img src='images/$biopic' alt='Image not found' class='img'>");}
+          print("</div>");
+					print("");
+					print("<div id='authorbio'><h3>$name</h3> <p>$description</p>");
 					print("</div>");
 						print("<div id='authorarticle'><h3>Article</h3> <a href='article.php?id=$articlelink'>$article</a>");
 					print("</div>");
@@ -38,5 +39,10 @@
 		}
 	}
 	?>
+
+
 </body>
+<?php
+  include_once("includes/footer.php");
+?>
 </html>
