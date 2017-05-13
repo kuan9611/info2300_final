@@ -257,7 +257,18 @@ nav ul ul ul {
 }
 #leaveComment { top: 70%; }
 
+.comment-box {
+	overflow: auto;
+	border-bottom: 1px solid #aaa;
+}
+.comment-delete {
+	float: right;
+}
 
+.replyText {
+	margin-top: 5px;
+	width: 100%;
+}
 
 /* top level */
 nav > ul {

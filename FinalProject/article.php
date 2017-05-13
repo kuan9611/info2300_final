@@ -128,11 +128,14 @@ if (isset($_SESSION["user"])) {
     $comments = $mysqli->query("SELECT * FROM Comments
                                 WHERE thread_id = {$thread['thread_id']}");
     while ($comment = $comments->fetch_assoc()) {
-      print('<div id="'.$comment['comment_id'].'d"><b>'.$comment['username'].'</b> ('.$comment['date'].'):<br>'.$comment['content']);
+      print('<div class="comment-box" id="'.$comment['comment_id'].'d"><b>'.$comment['username'].'</b> ('.$comment['date'].'):<br>'.$comment['content']);
       if (isset($_SESSION["user"]) && $_SESSION["user"] === $comment['username']) {
         print('<br><a class="comment-delete" id="'.$comment['comment_id'].'c">delete</a>');
       }
       print('</div>');
+    }
+    if (isset($_SESSION["user"])) {
+      print('<a class="comment-reply" id="'.$thread['thread_id'].'r">reply</a>');
     }
     print("');\n");
     print("markers.push(marker);\n");

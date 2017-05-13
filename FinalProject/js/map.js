@@ -90,6 +90,33 @@ $(document).ready(function () {
     });
   });
 
+  $("#mapcontainer").on("click", ".comment-reply", function() {
+    var id = parseInt($(this).attr('id'));
+    $('<div id="'+id+'t"><textarea class="replyText" placeholder="enter reply">'+
+      '</textarea><a class="reply-post" id="'+id+'s"><br>post</a></div>')
+      .insertAfter($(this));
+    $(this).remove();
+  });
+
+  $("#mapcontainer").on("click", ".reply-post", function() {
+    var id = parseInt($(this).attr('id'));
+    var content = $('#'+id+'t textarea').val();
+
+    var request = $.ajax({
+      url: "includes/add_reply.php",
+      type: "POST",
+      data: { 'rpl_content': content,
+              'thr_id': id }
+    });
+    request.done(function(resp) {
+      var resp = $.parseJSON(resp);
+      if (resp.success) {
+        $(resp.content).insertBefore('#'+resp.id+'t');
+        $('#'+resp.id+'t').remove();
+      }
+    });
+  });
+
   map.on('move', function () {
     if (marker !== null) {
       marker.setLatLng(map.getCenter());
