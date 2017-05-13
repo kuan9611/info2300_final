@@ -117,6 +117,7 @@ if (isset($_SESSION["user"])) {
 
 <script>
   var markers = [];
+  var id2marker = new Map();
   <?php
   $threads = $mysqli->query("SELECT * FROM Threads
                               WHERE article_id = $article_id
@@ -139,6 +140,7 @@ if (isset($_SESSION["user"])) {
     }
     print("');\n");
     print("markers.push(marker);\n");
+    print("id2marker.set({$thread['thread_id']}, marker);\n");
   }
   ?>
 </script>

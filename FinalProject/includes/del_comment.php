@@ -41,6 +41,6 @@ if (((int) $result->fetch_row()[0]) === 0) {
 	$mysqli->query($query);
 }
 
-echo json_encode(array('success' => 1));
+echo json_encode(array('success' => 1, 'id' => $thread_id));
 
 ?>

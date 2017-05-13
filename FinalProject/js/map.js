@@ -81,11 +81,14 @@ $(document).ready(function () {
       data: { 'cmt_id': id }
     });
     request.done(function(resp) {
-      console.log(resp);
       var resp = $.parseJSON(resp);
       if (resp.success) {
+        var msg = '<i>(comment removed)</i>';
         $('#'+id+'d').empty();
-        $('#'+id+'d').append($('<i>(comment removed)</i>'));
+        $('#'+id+'d').append($(msg));
+        id2marker.get(Number(resp.id)).on("click", function() {
+          $('#'+id+'d').remove();
+        });
       }
     });
   });
@@ -113,6 +116,9 @@ $(document).ready(function () {
       if (resp.success) {
         $(resp.content).insertBefore('#'+resp.id+'t');
         $('#'+resp.id+'t').remove();
+        id2marker.get(Number(resp.id)).on("click", function() {
+          $(resp.content).insertBefore('#'+resp.id+'r');
+        });
       }
     });
   });
