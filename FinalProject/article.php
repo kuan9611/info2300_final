@@ -118,15 +118,25 @@ if (isset($_SESSION["user"])) {
 <script>
   var markers = [];
   <?php
-  $comments = $mysqli->query("SELECT * FROM Comments
-                              WHERE article_id =".$article_id);
-  while ($comment = $comments->fetch_assoc()) {
-    print("var marker = L.marker([{$comment['y_coord']},
-                                  {$comment['x_coord']}]);\n");
-    print("marker.bindPopup('<b>".$comment['username'].
-                '</b> said:<br>'.$comment['content']."');\n");
+  $threads = $mysqli->query("SELECT * FROM Threads
+                              WHERE article_id = $article_id
+                              AND on_map > 0");
+  while ($thread = $threads->fetch_assoc()) {
+    print("var marker = L.marker([{$thread['latitude']},
+                                    {$thread['longitude']}]);\n");
+    print("marker.bindPopup('");
+    $comments = $mysqli->query("SELECT * FROM Comments
+                                WHERE thread_id = {$thread['thread_id']}");
+    while ($comment = $comments->fetch_assoc()) {
+      print('<div id="'.$comment['comment_id'].'d"><b>'.$comment['username'].'</b> ('.$comment['date'].'):<br>'.$comment['content']);
+      if (isset($_SESSION["user"]) && $_SESSION["user"] === $comment['username']) {
+        print('<br><a class="comment-delete" id="'.$comment['comment_id'].'c">delete</a>');
+      }
+      print('</div>');
+    }
+    print("');\n");
     print("markers.push(marker);\n");
-  }  
+  }
   ?>
 </script>
 

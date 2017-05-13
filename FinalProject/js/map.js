@@ -47,7 +47,7 @@ $(document).ready(function () {
     var content = $("#commentText").val();
 
     var request = $.ajax({
-      url: "includes/comment.php",
+      url: "includes/add_comment.php",
       type: "POST",
       data: { 'cmt_content': content,
               'cmt_lat': marker.getLatLng().lat,
@@ -68,6 +68,24 @@ $(document).ready(function () {
           popup.openPopup();
         }
         marker = null;
+      }
+    });
+  });
+
+  $("#mapcontainer").on("click", ".comment-delete", function() {
+    var id = parseInt($(this).attr('id'));
+    
+    var request = $.ajax({
+      url: "includes/del_comment.php",
+      type: "POST",
+      data: { 'cmt_id': id }
+    });
+    request.done(function(resp) {
+      console.log(resp);
+      var resp = $.parseJSON(resp);
+      if (resp.success) {
+        $('#'+id+'d').empty();
+        $('#'+id+'d').append($('<i>(comment removed)</i>'));
       }
     });
   });
