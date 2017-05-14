@@ -37,8 +37,8 @@ body {
 
 .article h2 {
 	color: #b00d10;
-	margin-top: 60px;
-	margin-bottom: 10px;
+	margin-top: 20px;
+	margin-bottom: 1px;
 	font-weight: bold;
 }
 
@@ -71,10 +71,17 @@ h4 {
 }
 
 p {
-	margin: 1em 0 1em 0;
+	margin: 0 0 1em 0;
 	color:black;
 }
 
+a:link {
+	color: #b00d10;
+}
+
+a:visited {
+	color: #b00d10;
+}
 
 /* Header */
 header {
@@ -131,6 +138,10 @@ nav {
 
 nav a:visited {
 	color: #fff;
+}
+
+nav a:link {
+	color: white;
 }
 
 nav ul {
@@ -325,7 +336,6 @@ nav > ul > li > a[aria-haspopup="true"]::after {
 .search {
   display: block;
   float: left;
-  width: 88%;
   border: 0;
   outline: none;
   padding: 0;
@@ -462,9 +472,80 @@ html[xmlns] .clearfix { display: block; }
 	font-weight: bold;
 }
 
+/* Login Page */
+
+#login {
+	margin: 0 auto;
+	margin-top: 1em;
+	width: 40%;
+}
+
+#login-area p {
+	line-height: 1em;
+	margin: .5em 0 .25em 0em;
+}
+#signup-area p {
+	line-height: 1em;
+	margin: .5em 0 .25em 0em;
+}
+#login-area {
+	float: left;
+	margin-top: 1.75em;
+	width: 40%;
+}
+
+#signup-area {
+	float: right;
+	width: 40%;
+}
+
+input[type=text] {
+	background-color: #b00d10;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 100%;
+}
+
+input[type=password] {
+	background-color: #b00d10;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 100%;
+}
+input[type=submit] {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+
+}
+
+#divider {
+    position:absolute;
+    left:50%;
+    top:20%;
+    bottom:40%;
+    border-left:3px dotted black;
+}
 /* Media Queries */
 
 @media screen and (max-width: 1260px) {
+	#login {
+		width: 48%;
+	}
 	#searchbar {
 		position: relative;
 		top: 0px;
@@ -479,6 +560,9 @@ html[xmlns] .clearfix { display: block; }
 		background: none;
 	}
 @media screen and (max-width: 1000px) {
+	#login {
+		width: 65%;
+	}
 	.authorinfo {
 		margin: 0 auto;
 		margin-top: 1em;
@@ -513,7 +597,9 @@ html[xmlns] .clearfix { display: block; }
 
 
 @media screen and (max-width: 845px) {
-
+	#login {
+		width: 80%;
+	}
 	h1 {
 		font-size: 2.2em;
 	}
@@ -554,7 +640,26 @@ html[xmlns] .clearfix { display: block; }
 	/* Header */
 
 @media screen and (max-width: 760px) {
-
+	#login {
+		width: 70%;
+	}
+	#login-area {
+		float: none;
+		width: 100%;
+	}
+	#signup-area {
+		margin-top: 2em;
+		float: none;
+		padding-left: 0;
+		width: 100%;
+	} 
+	#divider {
+		display: none;
+	}
+	input[type=submit] {
+		width: 100%;
+		background-color: #4c4c4c;
+	}
 	h2 {
 		font-size: 1.4em;
 	}
@@ -573,6 +678,9 @@ html[xmlns] .clearfix { display: block; }
 
 
 @media screen and (max-width: 665px) {
+	#login {
+		width: 90%;
+	}
 	#searchbar {
 		width: 90%;
 	}
