@@ -42,7 +42,37 @@ body {
 	font-weight: bold;
 }
 
+/* Reference */
+#reference {
+	padding-left: 30px ;
+  text-indent: -30px ;
+  font-size: 15px;
+}
 
+.ref {
+	margin:10px 0;
+}
+
+.hide {
+	display:none;
+}
+
+.show {
+	display:block;
+}
+
+#showReference {
+  background-color: white;
+  border: none;
+  color: #b00d10;
+  padding: none;
+  margin: none;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 500;
+}
 
 /* Text */
 
@@ -661,7 +691,7 @@ input[type=submit] {
 		float: none;
 		padding-left: 0;
 		width: 100%;
-	} 
+	}
 	#divider {
 		display: none;
 	}
