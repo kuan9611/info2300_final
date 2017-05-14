@@ -96,7 +96,7 @@ $(document).ready(function () {
   $("#mapcontainer").on("click", ".comment-reply", function() {
     var id = parseInt($(this).attr('id'));
     $('<div id="'+id+'t"><textarea class="replyText" placeholder="enter reply">'+
-      '</textarea><a class="reply-post" id="'+id+'s"><br>post</a></div>')
+      '</textarea><br><a class="reply-post" id="'+id+'s">post</a></div>')
       .insertAfter($(this));
     $(this).remove();
   });

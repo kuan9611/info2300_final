@@ -426,7 +426,16 @@ html[xmlns] .clearfix { display: block; }
 	margin: 5px;
 }
 
-#disqus_thread {
+#discussion-section {
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+}
+#discussion-section * {
+	width: 100%;
+}
+
+/*#disqus_thread {
 	position: relative;
 	width: 90%;
 	margin: 0 auto;
@@ -439,7 +448,7 @@ html[xmlns] .clearfix { display: block; }
 	position: absolute;
 	bottom: 0;
 	background: white;
-}
+}*/
 
 
 /* Images in Article */

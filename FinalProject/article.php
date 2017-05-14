@@ -19,7 +19,8 @@
       <link rel="stylesheet" href="https://cdn.rawgit.com/ardhi/Leaflet.MousePosition/master/src/L.Control.MousePosition.css" />
       <script src="https://cdn.rawgit.com/ardhi/Leaflet.MousePosition/master/src/L.Control.MousePosition.js"></script>
 
-      <script type="text/javascript" src="js/map.js"></script>');
+      <script type="text/javascript" src="js/map.js"></script>
+      <script type="text/javascript" src="js/comments.js"></script>');
   }
   include_once("includes/header.php");
 ?>
@@ -154,7 +155,35 @@ if (isset($_SESSION["user"])) {
   </form>
 </div>
 
-<div id="disqus_thread"></div>
+<div id="discussion-section">
+  <h3 id="section-header"><i><?php print($title); ?></i> · Comments</h3>
+  <?php
+  if (isset($_SESSION["user"])) {
+    print("<textarea id='scommentText' placeholder='enter comment'></textarea><br><a id='postScomment'>post</a>");
+  }
+  $threads = $mysqli->query("SELECT * FROM Threads
+                              WHERE article_id = $article_id
+                              AND on_map = 0");
+  while ($thread = $threads->fetch_assoc()) {
+    print('<div class="section-thread" id="'.$thread['thread_id'].'st">');
+    $comments = $mysqli->query("SELECT * FROM Comments
+                                WHERE thread_id = {$thread['thread_id']}");
+    while ($comment = $comments->fetch_assoc()) {
+      print('<div class="section-comment" id="'.$comment['comment_id'].'sc"><b>'.$comment['username'].'</b> ('.$comment['date'].'):<br>'.$comment['content']);
+      if (isset($_SESSION["user"]) && $_SESSION["user"] === $comment['username']) {
+        print('<br><a class="scomment-delete" id="'.$comment['comment_id'].'sd">delete</a>');
+      }
+      print('</div>');
+    }
+    if (isset($_SESSION["user"])) {
+      print('<a class="scomment-reply" id="'.$thread['thread_id'].'sr">reply</a>');
+    }
+    print('</div>');
+  }
+  ?>
+</div>
+
+<!-- <div id="disqus_thread"></div>
 <script>
 /**
 *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
@@ -162,8 +191,8 @@ if (isset($_SESSION["user"])) {
 
 var disqus_config = function () {
 //this.page.url = PAGE_URL;  default would be window.location.href
-<?php echo "this.page.identifier = $article_id ;"; 
-      echo "this.page.title = ".json_encode($title)." ;"; ?>
+<?php //echo "this.page.identifier = $article_id ;"; 
+      //echo "this.page.title = ".json_encode($title)." ;"; ?>
 };
 
 (function() {
@@ -173,7 +202,10 @@ var disqus_config = function () {
 	(d.head || d.body).appendChild(s);
 })();
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
 
 </body>
+<?php
+  include_once("includes/footer.php");
+?>
 </html>
