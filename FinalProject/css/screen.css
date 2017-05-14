@@ -107,10 +107,12 @@ p {
 
 a:link {
 	color: #b00d10;
+	text-decoration: none;
 }
 
 a:visited {
 	color: #b00d10;
+	text-decoration: none;
 }
 
 /* Header */
@@ -172,6 +174,7 @@ nav a:visited {
 
 nav a:link {
 	color: white;
+	text-decoration: none;
 }
 
 nav ul {
