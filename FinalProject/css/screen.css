@@ -434,6 +434,10 @@ html[xmlns] .clearfix { display: block; }
 #discussion-section * {
 	width: 100%;
 }
+.section-thread {
+	padding: 5px 0;
+	border-bottom: 1px solid #aaa;
+}
 
 /*#disqus_thread {
 	position: relative;
