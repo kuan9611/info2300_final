@@ -132,14 +132,19 @@ $(document).ready(function () {
   $("#showComment").on("click", function() {
     $(this).hide();
     $("#hideComment").show();
+    $("#leaveComment").show();
     commentLayer = L.layerGroup(markers);
     commentLayer.addTo(map);
   });
   $("#hideComment").hide();
+  $("#leaveComment").hide();
   $("#hideComment").on("click", function() {
-    $(this).hide();
-    $("#showComment").show();
-    map.removeLayer(commentLayer);
+    if (marker === null) {
+      $(this).hide();
+      $("#leaveComment").hide();
+      $("#showComment").show();
+      map.removeLayer(commentLayer);
+    }
   });
 
   $('#maptoggle').on('click', function(e){

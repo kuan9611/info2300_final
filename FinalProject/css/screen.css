@@ -471,6 +471,10 @@ html[xmlns] .clearfix { display: block; }
 	padding: 5px 0;
 	border-bottom: 1px solid #aaa;
 }
+.section-comment:not(:first-child),.scomment-reply,.sreplyText,.sreply-post {
+    width: 95% !important;
+    margin-left: 5%;
+}
 
 /*#disqus_thread {
 	position: relative;
