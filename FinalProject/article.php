@@ -44,6 +44,7 @@
       $article = $article_row->fetch_assoc();
       $title = $article['title'];
       $content = $article['content'];
+      $reference = $article['reference'];
       $date_posted = $article['date_posted'];
       $date_edited = $article['date_edited'];
       $authorfull = array();
@@ -98,17 +99,37 @@
         $tag = $row['tag'];
         print("<a href='search.php?tag=$id'>$tag</a> ");
       }
-
+      print("<br><br>");
+      if ($reference!=NULL) {
+        print("<button onclick='showReference(this)' id='showReference'>References:</button>");
+        $reference_arr=explode("|", $reference);
+        print("<div class='hide' id='reference'>");
+        foreach ($reference_arr as $ref) {
+          print("<p class='ref'>$ref</p>");
+        }
+        print("</div>");
+      }
       print("</div>");
     }
   }
 ?>
 
+<script>
+  function showReference() {
+    var reference = document.getElementById('reference');
+    if(reference.className=='hide'){
+        reference.className = 'show' ;
+    }else{
+        reference.className = 'hide';
+    }
+  }
+</script>
+
 <div id="mapcontainer">
   <div id="map"></div>
 </div>
 <button id="maptoggle">Toggle Map</button>
-<?php 
+<?php
 if (isset($_SESSION["user"])) {
   print("<button id='leaveComment'>Leave a Comment</button>");
 }
@@ -191,7 +212,7 @@ if (isset($_SESSION["user"])) {
 
 var disqus_config = function () {
 //this.page.url = PAGE_URL;  default would be window.location.href
-<?php //echo "this.page.identifier = $article_id ;"; 
+<?php //echo "this.page.identifier = $article_id ;";
       //echo "this.page.title = ".json_encode($title)." ;"; ?>
 };
 

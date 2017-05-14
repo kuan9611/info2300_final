@@ -55,7 +55,7 @@
 							<?php
 									require_once 'includes/config.php';
 									$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-    							$articles_info = $mysqli->query("SELECT location,article_id FROM Articles");
+    							$articles_info = $mysqli->query("SELECT location,article_id FROM Articles ORDER BY location");
     							if (empty($articles_info)) {
     								print("didnt work");
 							      print($mysqli->error);
@@ -72,15 +72,16 @@
 					<li><a href="#" aria-haspopup="true">Authors</a>
 						<ul>
 							<?php
-    							$authors_info = $mysqli->query("SELECT name,author_id FROM Authors");
+    							$authors_info = $mysqli->query("SELECT name,author_id FROM Authors ORDER BY name");
     							if (empty($authors_info)) {
     								print("didnt work");
 							      print($mysqli->error);
 							    } else {
 										while ($row = $authors_info->fetch_assoc()) {
 											$author_id = $row['author_id'];
-											$name = $row['name'];
-											print("<li><a href='author.php?author=$author_id'>$name</a></li>");
+											$name = array();
+											$name = explode(" ", $row['name']);
+											print("<li><a href='author.php?author=$author_id'>$name[1]</a></li>");
 										}
 									}
 							?>
