@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 	<head lang="en">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,8 +12,9 @@
 		<link rel="stylesheet" type="text/css" href="css/index.css">
 
 		<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:600" rel="stylesheet">
-		<link href=https://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,700,300 rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,700,300" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 		<link rel="stylesheet" type="text/css" media="all" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -93,3 +94,4 @@
 				<h1>Special Edition: GIS</h1>
 				<h2>Geographical Information System</h2>
 			</div>
+  	</div>

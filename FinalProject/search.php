@@ -5,7 +5,7 @@
     if(!empty($_GET["search"])){
       $search = trim(htmlentities($_GET["search"]));
       $pattern = "%$search%";
-      print("<h3>Search word: $search </h3>");
+      print("<h2>Search Results for: $search </h2>");
       require_once 'includes/config.php';
       $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
       $sql = "SELECT * FROM Articles WHERE content LIKE ? OR title LIKE ? OR date_posted LIKE ? OR date_edited LIKE ? OR location LIKE ?";
@@ -14,7 +14,7 @@
       $stmt -> execute();
       $result = $stmt ->get_result();
       $stmt -> close();
-      print("<h3>Article:</h3>");
+      print("<h3>Articles:</h3>");
       while ($row = $result->fetch_assoc()) {
       	$article_id = $row['article_id'];
         $title = $row['title'];
@@ -33,7 +33,7 @@
         print( "<div class='results'>");
           print("<div class='thumbnail'><img src='$thumbnail_path' alt='image not found' width=150></div>");
           print("<div class='article_intro'>");
-            print("<p><a href='article.php?id=$article_id'>$title</a><p>");
+            print("<h4><a href='article.php?id=$article_id'>$title</a></h4>");
             print("<p>Authors: $authorlist</p>");
           print("</div>");
         print("</div>");
@@ -55,7 +55,7 @@
         $article = $articles['title'];
         $article_id = $articles['article_id'];
         print( "<div class='results'>
-                  <p>$name   <a href='author.php?author=$id'>Go to page</a></p>
+                  <h4>$name   <a href='author.php?author=$id'>Go to page</a></h4>
                   <p>Article: <a href='article.php?id=$article_id'>$article</a></p><br>
                 </div>");
 
@@ -74,7 +74,7 @@
       $result0 = $stmt0 ->get_result();
       $tag = $result0->fetch_assoc()['tag'];
       $stmt0 -> close();
-      print("<h3>Tag: $tag</h3>");
+      print("<h2>Tag: $tag</h2>");
 
       $sql = "SELECT * FROM Articles JOIN Tagged USING(article_id) WHERE tag_id = ?";
       $stmt = $mysqli->prepare($sql);
@@ -102,7 +102,7 @@
         print( "<div class='results'>");
           print("<div class='thumbnail'><img src='$thumbnail_path' alt='image not found' width=150></div>");
           print("<div class='article_intro'>");
-            print("<p><a href='article.php?id=$article_id'>$title</a><p>");
+            print("<h4><a href='article.php?id=$article_id'>$title</a></h4>");
             print("<p>Authors: $authorlist</p>");
           print("</div>");
         print("</div>");

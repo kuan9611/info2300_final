@@ -509,8 +509,21 @@ html[xmlns] .clearfix { display: block; }
 	padding: 50px;
 }
 
-#searchresults h3{
+#searchresults h2{
 	color: black;
+	font-weight: 600;
+	font-size: 1.8em;
+	margin-bottom: 60px;
+	line-height: 0;
+}
+
+#searchresults h3{
+	font-size: 1.4em;;
+	color: black;
+}
+
+#searchresults h4{
+	font-size: 1.3em;;
 }
 
 .results{

@@ -80,8 +80,8 @@
               $width = $image['width'];
               $height = $image['height'];
               $width_pr = (!empty($width))?"width=".$width:"";
-              $height_pr = (!empty($height))?"height=".$height:"";
-              print("<img src='$file' alt='Image not found' class='img' $height_pr $width_pr style='min-width:400px'>");
+              $height_pr = (!empty($height))?"height=".$height.";'":"";
+              print("<img src='$file' alt='Image not found' class='img' style='min-width:400px;$height_pr;$width_pr;'>");
             }
           }
           print("</div>");
@@ -225,8 +225,9 @@ var disqus_config = function () {
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
 
-</body>
+
 <?php
   include_once("includes/footer.php");
 ?>
+</body>
 </html>
