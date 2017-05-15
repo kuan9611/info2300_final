@@ -23,11 +23,15 @@
 				$result = $stmt->get_result();
 			}
 
-			if ($result->fetch_row()) {
+			if ($account = $result->fetch_assoc()) {
 				$_SESSION["user"] = $username;
 				echo "<p>Sign-in successful!</p>";
 				echo '<script type="text/javascript">';
-	      		echo 'window.location.href="index.php";';
+				if ($account["permission"] === 2) {
+					echo 'window.location.href="admin.php";';
+				} else {
+					echo 'window.location.href="index.php";';
+				}
 	      		echo '</script>';
 			}
 
