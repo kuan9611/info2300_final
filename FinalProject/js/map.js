@@ -58,15 +58,14 @@ $(document).ready(function () {
       var resp = $.parseJSON(resp);
       if (resp.success) {
         var popup = marker.bindPopup(resp.content);
+        id2marker.set(resp.id, marker);
         $("#commentBox").hide();
         markers.push(marker);
         map.removeLayer(marker);
-        if ($("#hideComment").is(":visible")) {
-          map.removeLayer(commentLayer);
-          commentLayer = L.layerGroup(markers);
-          commentLayer.addTo(map);
-          popup.openPopup();
-        }
+        map.removeLayer(commentLayer);
+        commentLayer = L.layerGroup(markers);
+        commentLayer.addTo(map);
+        popup.openPopup();
         marker = null;
       }
     });
