@@ -11,11 +11,12 @@
       <script src="https://leaflet.github.io/Leaflet.label/leaflet.label.js"></script>
       <script src="https://cdn.rawgit.com/Leaflet/Leaflet.heat/gh-pages/dist/leaflet-heat.js"></script>
       <script src="https://cdn.jsdelivr.net/leaflet.esri.heatmap-feature-layer/2.0.0-beta.1/esri-leaflet-heatmap-feature-layer.js"></script>
-      <script src="https://cdn.jsdelivr.net/leaflet.esri.renderers/2.0.2/esri-leaflet-renderers.js"></script>
+      <script src="//cdn.jsdelivr.net/leaflet.esri.renderers/2.0.3/esri-leaflet-renderers.js"></script>
       <script src="https://muxlab.github.io/Leaflet.VectorIcon/L.VectorIcon.js"></script>
+      <script src="//unpkg.com/esri-leaflet-vector@1.0.2"></script>
       <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
       <script src="https://cdn.jsdelivr.net/leaflet.esri.webmap/0.4.0/esri-leaflet-webmap.js"></script>
-
+      <script src="//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.3.1/leaflet-omnivore.min.js"></script>
       <link rel="stylesheet" href="https://cdn.rawgit.com/ardhi/Leaflet.MousePosition/master/src/L.Control.MousePosition.css" />
       <script src="https://cdn.rawgit.com/ardhi/Leaflet.MousePosition/master/src/L.Control.MousePosition.js"></script>
 
@@ -47,6 +48,7 @@
       $reference = $article['reference'];
       $date_posted = $article['date_posted'];
       $date_edited = $article['date_edited'];
+      $map_id = $article['map_id'];
       $authorfull = array();
       print("<div class='article'>");
         print("<h1>$title</h1>");
@@ -101,7 +103,7 @@
       }
       print("<br><br>");
       if ($reference!=NULL) {
-        print("<button onclick='showReference(this)' id='showReference'>References:</button>");
+        print("<button onclick='showReference(this)' id='showReference'>References <i class='fa fa-sort-asc' aria-hidden='true'></i></button>");
         $reference_arr=explode("|", $reference);
         print("<div class='hide' id='reference'>");
         foreach ($reference_arr as $ref) {
@@ -113,6 +115,10 @@
     }
   }
 ?>
+
+<script>
+  var webmapId = '<?php print "$map_id" ?>';
+</script>
 
 <script>
   function showReference() {
@@ -204,9 +210,30 @@ if (isset($_SESSION["user"])) {
   ?>
 </div>
 
+<!-- <div id="disqus_thread"></div>
+<script>
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+//this.page.url = PAGE_URL;  default would be window.location.href
+<?php //echo "this.page.identifier = $article_id ;";
+      //echo "this.page.title = ".json_encode($title)." ;"; ?>
+};
+
+(function() {
+	var d = document, s = d.createElement('script');
+	s.src = 'https://cpr-gis.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
+
+
 <?php
   include_once("includes/footer.php");
 ?>
-
 </body>
 </html>
