@@ -3,20 +3,41 @@ $(document).ready(function () {
   // to draw a different webmap, just append its id instead
   // webmap.html?id=13750b8b548d48bfa99a9731f2a93ba0
 
-  var webmapId = '22c504d229f14c789c5b49ebff38b941'; // Default WebMap ID
+  //var webmapId = '8449792b21af48659aeb77c95dd14858'; // Default WebMap ID
   var webmap = L.esri.webMap(webmapId, { map: L.map("map") });
   var map = webmap._map;
-  
+  var urlParams = location.search.substring(1).split('&');
+  for(var i=0; urlParams[i]; i++) {
+      var param = urlParams[i].split('=');
+      if(param[0] === 'webmap') {
+          webmapId = param[1]
+      }
+  }
+
+  webmap.on('metadataLoad', function() {
+      var MapTitleControl = L.Control.extend({
+          options: {
+              position: 'topright'
+          },
+          onAdd: function (map) {
+              var container = L.DomUtil.create('div', 'map-title-control');
+              container.innerHTML = '<a target="_brank" href="http://www.arcgis.com/home/webmap/viewer.html?webmap=' + webmapId + '">' + webmap.title + '</a>'; // Add link to a webmap.
+              return container;
+          }
+      });
+      webmap._map.addControl(new MapTitleControl());
+  });
   webmap.on('load', function() {
+      console.log('webmap loaded', webmap.layers);
       var overlayMaps = {};
       webmap.layers.map(function(l) {
+          console.log(l);
           overlayMaps[l.title] = l.layer;
       });
       L.control.layers({}, overlayMaps, {
           position: 'bottomright'
-      }).addTo(map);
+      }).addTo(webmap._map);
   });
-
   L.control.mousePosition().addTo(map);
 
   function getIdfromUrl() {
