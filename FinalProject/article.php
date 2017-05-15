@@ -79,8 +79,8 @@
               $file = "images/".$image['filename'];
               $width = $image['width'];
               $height = $image['height'];
-              $width_pr = (!empty($width))?"width=".$width:"";
-              $height_pr = (!empty($height))?"height=".$height.";'":"";
+              $width_pr = (!empty($width))?"width:".$width:"";
+              $height_pr = (!empty($height))?"height:".$height.";'":"";
               print("<img src='$file' alt='Image not found' class='img' style='min-width:400px;$height_pr;$width_pr;'>");
             }
           }
