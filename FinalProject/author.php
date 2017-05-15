@@ -31,8 +31,8 @@
           print("</div>");
 					print("");
 					print("<div id='authorbio'><h3>$name</h3> <p>$description</p>");
-					print("</div>");
 						print("<div id='authorarticle'><h3>Article</h3> <a href='article.php?id=$articlelink'>$article</a>");
+            print("</div>");
 					print("</div>");
 				print("</div>");
 			print("</div>");
@@ -41,9 +41,8 @@
 	?>
 
 
-
+</body>
 <?php
   include_once("includes/footer.php");
 ?>
-</body>
 </html>
