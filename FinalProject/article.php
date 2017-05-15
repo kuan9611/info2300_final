@@ -204,30 +204,9 @@ if (isset($_SESSION["user"])) {
   ?>
 </div>
 
-<!-- <div id="disqus_thread"></div>
-<script>
-/**
-*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-
-var disqus_config = function () {
-//this.page.url = PAGE_URL;  default would be window.location.href
-<?php //echo "this.page.identifier = $article_id ;";
-      //echo "this.page.title = ".json_encode($title)." ;"; ?>
-};
-
-(function() {
-	var d = document, s = d.createElement('script');
-	s.src = 'https://cpr-gis.disqus.com/embed.js';
-	s.setAttribute('data-timestamp', +new Date());
-	(d.head || d.body).appendChild(s);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> -->
-
-
 <?php
   include_once("includes/footer.php");
 ?>
+
 </body>
 </html>

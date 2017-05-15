@@ -464,12 +464,18 @@ html[xmlns] .clearfix { display: block; }
 	width: 90%;
 	margin: 0 auto;
 }
+#section-header {
+	border-bottom: 3px solid #b00d10;
+}
 #discussion-section * {
 	width: 100%;
 }
 .section-thread {
 	padding: 5px 0;
 	border-bottom: 1px solid #aaa;
+}
+.section-comment {
+	margin-bottom: 6px;
 }
 .section-comment:not(:first-child),.scomment-reply,.sreplyText,.sreply-post {
     width: 95% !important;
