@@ -462,6 +462,59 @@ html[xmlns] .clearfix { display: block; }
 	font-weight: bold;
 }
 
+/****for admin.php****/
+#admin-panel{
+	width: 80%;
+	margin: 50px auto;
+}
+
+#admin {
+	margin-bottom: 30px;
+}
+
+#all {
+	display: inline-flex;
+	width: 45%;
+}
+
+#article_select {
+	display: inline-flex;
+	width: 45%;
+	float: right;
+}
+
+#article_select select {
+	display: inline-block;
+	width: 50%;
+	margin-left: 50%;
+}
+
+#comments {
+	border-spacing: 10px;
+    border-collapse: separate;
+}
+
+thead {
+	text-align: center;
+}
+
+tbody {
+	text-align: center;
+}
+
+tbody > tr {
+	height: 80px;
+}
+
+.column-two {
+	width: 10%;
+}
+
+.column-three {
+	width: 25%;
+}
+
+
 /* Media Queries */
 
 @media screen and (max-width: 1260px) {
