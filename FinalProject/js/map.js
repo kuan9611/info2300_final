@@ -168,7 +168,13 @@ $(document).ready(function () {
       map.removeLayer(commentLayer);
     }
   });
-
+  $(function(){
+  var $legend  = $('#legend');
+    $('#legToggle').on('click', function(e){
+      e.preventDefault();
+      $legend.toggle();
+    });
+  });
   $('#maptoggle').on('mouseover', function() {
     $(this).css("opacity", 1);
   });
@@ -181,7 +187,7 @@ $(document).ready(function () {
     var screenWidth = $(window).width();
     var slideoutMap = $('#mapcontainer');
     var slideoutMapWidth = $('#mapcontainer').width();
-    var slideoutCom = $('#leaveComment, #showComment, #hideComment');
+    var slideoutCom = $('#leaveComment, #showComment, #hideComment, #legToggle');
     // toggle open class
     slideoutMap.toggleClass("open");
     slideoutCom.toggleClass("open");
