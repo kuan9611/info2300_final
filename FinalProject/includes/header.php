@@ -56,11 +56,26 @@
 			<nav>
 				<ul id="menu">
 					<li><a href="index.php">Home</a></li>
+							<?php					
+						require_once 'includes/config.php';
+						$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+						if (isset($_SESSION['user'])) {
+							$curusername = $_SESSION["user"];
+							$user_info = $mysqli->query("SELECT permission FROM Accounts WHERE username = '$curusername'");
+							if (!$user_info) {
+								print "User error";
+							}	else {
+								$permissions = $user_info->fetch_assoc();
+								$permission = $permissions['permission'];
+								if ($permission == 2) {
+									print "<li><a href='admin.php'>Admin</a></li>";
+								}	
+							}							
+						}
+						?>
 					<li><a href="#" aria-haspopup="true">Articles</a>
 						<ul>
 							<?php
-									require_once 'includes/config.php';
-									$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
     							$articles_info = $mysqli->query("SELECT location,article_id FROM Articles ORDER BY location");
     							if (empty($articles_info)) {
     								print("didnt work");
