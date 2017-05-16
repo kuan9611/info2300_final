@@ -70,10 +70,7 @@
 			              			<td>$username</td>
 			              			<td>$time</td>
 			              			<td>
-			              			<form action='includes/del_comment.php' method='POST' id ='comment".$comment_id."'".">
-										<input type='hidden' name='cmt_id' value=$comment_id>
-									</form>
-			              			<a href='includes/del_comment.php' onclick='document.getElementById(\"comment".$comment_id."\"".").submit();return false;'>Delete</a></td>
+			              			<a class='admin-delete' id='".$comment_id."ad'>Delete</a></td>
 			              		</tr> 		
 			              "); 
 			        }      
@@ -100,6 +97,20 @@
 		//when the page is loading, show all comments	
 		$(document).ready(function(){
 	
+			$("#admin-panel").on("click", ".admin-delete", function() {
+				var id = parseInt($(this).attr('id'));
+				var request = $.ajax({
+			      url: "includes/del_comment.php",
+			      type: "POST",
+			      data: { 'cmt_id': id }
+			    });
+			    request.done(function(resp) {
+			      var resp = $.parseJSON(resp);
+			      if (resp.success) {
+			        window.location.reload();
+			      }
+			    });
+			});
 
 			$( "#next-page").click( function() {
 				//Hide the "next" link so it can't be clicked again and show a "loading" image
@@ -132,10 +143,7 @@
 							'<td>' + this.title + '</td>' +
 							'<td>' + this.username + '</td>' +
 							'<td>' + this.date + '</td>' +
-							'<td>'+ "<form action='includes/del_comment.php' method='POST' id =\"comment" + this.comment_id + "\">"
-										+ "<input type='hidden' name='cmt_id' value="  + this.comment_id  + ">"
-									+ "</form>"
-									+ "<a href='includes/del_comment.php' onclick='document.getElementById(\""+ "comment"+this.comment_id + "\""+").submit();return false;'>Delete</a></td>"
+							'<td>' + "<a class='admin-delete' id='"+this.comment_id+"ad'>Delete</a></td>"
 							+'</tr>');
 
 				});
