@@ -169,7 +169,7 @@ function customHeader(){
       </div>
 
       <div id ="welcome">
-          <img src="http://www.thecollegesolution.com/wp-content/uploads/2014/06/Cornell.jpg" alt="Image Not Found">
+          <img src="images/header.png" alt="Image Not Found">
           <div class="message">
             <div class="title-in-box">
               <h2>A Note from The Editor-In-Chief, Peter Fiduccia</h2>
