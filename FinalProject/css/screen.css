@@ -292,12 +292,12 @@ nav ul ul ul {
 	-webkit-transform-origin: bottom left;
 	-moz-transform-origin: bottom left;
 	transform-origin: bottom left;
-	-webkit-transform: rotate(90deg);   
+	-webkit-transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
 	transform: rotate(90deg);
 }
 
-#leaveComment, #showComment, #hideComment {
+#leaveComment, #showComment, #hideComment, #pleaseLogin{
 	position: fixed;
 	height: 4em;
 	width: 5%;
@@ -313,7 +313,8 @@ nav ul ul ul {
 	z-index: 998;
 	opacity: .7;
 }
-#leaveComment { top: 55%; }
+
+#leaveComment, #pleaseLogin { top: 55%; }
 
 #signinMessage {
 	font-size: 18px;
@@ -372,6 +373,46 @@ nav > ul > li > a[aria-haspopup="true"]::after {
 	top: auto;
 }
 
+/* LEGEND */
+
+#legToggle {
+	text-align: center;
+	position: fixed;
+	height: 3em;
+	width: 5%;
+	min-width: 6em;
+	top: 20%;
+	right: -40%;
+	text-decoration: none;
+	background-color: #b00d10;
+	opacity: 0.6;
+	border: none;
+	color: white;
+	border-radius: 10px 0px 0px 10px;
+	z-index: 998;
+	opacity: .7;
+	padding-top: .6em;
+}
+
+#legend {
+  position: absolute;
+  top: 3em;
+  left: 6em;
+	z-index: 9999;
+	display: none;
+	background-color: white;
+	opacity: .8;
+	border: 3px solid #b00d10;
+	border-radius: 10px;
+	margin: 0;
+	line-height: 1.1em;
+}
+
+#legend img {
+	border-radius: 10px;
+}
+
+
 /****************** SEARCH BAR DROP DOWN *************************/
 #searchbar {
   display: none;
@@ -428,13 +469,13 @@ html[xmlns] .clearfix { display: block; }
 
 .authorinfo {
 	margin: 2em auto;
-	margin-right: 10%;
 	width: 70%;
 }
 
 #authorcard {
 	display: inline-flex;
 	flex-wrap: wrap;
+	padding: 60px 0 20px;
 }
 
 #authorcard h1 {
@@ -444,6 +485,7 @@ html[xmlns] .clearfix { display: block; }
 
 #authorpic {
 	float: left;
+	padding-left: 30px;
 }
 
 #authorpic img {
@@ -453,8 +495,8 @@ html[xmlns] .clearfix { display: block; }
 }
 
 #authorbio {
-	float: right;
-	width: 60%;
+	width: 65%;
+	margin: auto;
 }
 
 #authorbio h3 {
@@ -678,8 +720,8 @@ input[type=submit] {
 #divider {
     position:absolute;
     left:50%;
-    top:20%;
-    bottom:40%;
+    top:30%;
+    bottom:20%;
     border-left:3px dotted black;
 }
 
@@ -713,7 +755,6 @@ input[type=submit] {
 
 #comments {
 	border-spacing: 10px;
-    border-collapse: separate;
 }
 
 thead {
@@ -726,6 +767,24 @@ tbody {
 
 tbody > tr {
 	height: 80px;
+}
+
+th, td {
+   border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+	background-color: #f5f5f5;
+}
+
+td a {
+	cursor:pointer;
+	color:#b00d10;
+}
+
+td a:hover {
+  color: red;
+  text-decoration: none;
 }
 
 .column-two {
