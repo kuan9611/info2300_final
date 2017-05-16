@@ -289,8 +289,8 @@ nav ul ul ul {
 	height: 4em;
 	width: 5%;
 	min-width: 6em;
-	top: 60%;
-	left: -40%;
+	top: 50%;
+	right: -40%;
 	text-decoration: none;
 	background-color: #b00d10;
 	opacity: 0.6;
@@ -300,7 +300,7 @@ nav ul ul ul {
 	z-index: 998;
 	opacity: .7;
 }
-#leaveComment { top: 70%; }
+#leaveComment { top: 40%; }
 
 #signinMessage {
 	font-size: 18px;

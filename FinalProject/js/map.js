@@ -182,11 +182,11 @@ $(document).ready(function () {
 
     if (slideoutCom.hasClass("open")) {
       slideoutCom.animate({
-        left: 0
+        right: 0
       }); 
     } else {
       slideoutCom.animate({
-        left: -slideoutMapWidth*.4
+        right: -slideoutMapWidth*.4
       }, 250)
     }
     // slide menu
