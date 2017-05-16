@@ -1,9 +1,9 @@
 <?php
-	
-	require_once 'includes/admin_functions.php';
+
+	require_once 'admin_functions.php';
 	$page = get_page();
 	$result = get_comments( $page );
-	
+
 	$all_rows = fetch_all( $result );
 
 	$response = array(

@@ -1,4 +1,4 @@
-<?php include_once("includes/header.php"); 
+<?php include_once("includes/header.php");
 
 
 ?>
@@ -39,7 +39,7 @@
         			<col class="column-five">
         			<col class="colum-six">
 				</colgroup>
-				
+
 				<thead>
 					<tr>
 						<th>Comment ID</th>
@@ -51,7 +51,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<?php 
+					<?php
 			        require_once 'includes/admin_functions.php';
 					$page = get_page();
 					$comments = get_comments($page);
@@ -61,7 +61,7 @@
 			              $content = $comment['content'];
 			              $username = $comment['username'];
 			              $time = $comment['date'];
-			              $article_title = $comment['title'];  
+			              $article_title = $comment['title'];
 
 			              print( "<tr>
 			              			<td>$comment_id</td>
@@ -71,9 +71,9 @@
 			              			<td>$time</td>
 			              			<td>
 			              			<a class='admin-delete' id='".$comment_id."ad'>Delete</a></td>
-			              		</tr> 		
-			              "); 
-			        }      
+			              		</tr>
+			              ");
+			        }
 	    			?>
     			</tbody>
 			</table>
@@ -85,18 +85,18 @@
 					href='admin.php?page=$older_page'>Show more comments</a></p>";
 				echo '<img id="ajax-loader" style="display:none;" src="images/ajax_loader.gif">';
 			?>
-	
+
 		</div>
 
-		
+
 	</div>
 	<?php include_once("includes/footer.php"); ?>
 </div>
 	<script type="text/javascript">
 
-		//when the page is loading, show all comments	
+		//when the page is loading, show all comments
 		$(document).ready(function(){
-	
+
 			$("#admin-panel").on("click", ".admin-delete", function() {
 				var id = parseInt($(this).attr('id'));
 				var request = $.ajax({
@@ -116,19 +116,19 @@
 				//Hide the "next" link so it can't be clicked again and show a "loading" image
 				$( '#next-page').hide();
 				$( '#ajax-loader').css( 'display', 'block');
-		
+
 				//Prepare the data to send with the ajax request
 				var page = $( '#next-page').data('page' );
 				var dataToSend = { page : page };
 
 				//Make the ajax request
 				request = $.ajax({
-					url: "admin-ajax.php",
+					url: "includes/admin-ajax.php",
 					type: "get",
 					data: dataToSend,
 					dataType: "json"
 				});
-		
+
 			//Increment the data attribute of the "next" link so it will be accurate for the next click
 			page++;
 			$( '#next-page').data('page', page );
@@ -168,7 +168,7 @@
 			var dataToSend = { article_id : article_id };
 
 		request = $.ajax({
-					url: "admin-article-ajax.php",
+					url: "includes/admin-article-ajax.php",
 					type: "get",
 					data: dataToSend,
 					dataType: "json"
@@ -204,7 +204,7 @@
 		});
 	});
 
-	
+
 	</script>
 </body>
 </html>

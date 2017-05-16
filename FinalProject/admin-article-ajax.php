@@ -1,8 +1,8 @@
 <?php
-	
-	require_once 'includes/admin_functions.php';
+
+	require_once 'admin_functions.php';
 	$result = get_article_comments();
-	
+
 	$all_rows = fetch_all( $result );
 
 	$response = array(
