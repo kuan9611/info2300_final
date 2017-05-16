@@ -132,9 +132,23 @@
 </script>
 
 <div id="mapcontainer">
+  <a href="#" id="legToggle">Legend</a>
+  <div id="legend">
+    <?php 
+      $legimg = $mysqli->query("SELECT * FROM Images WHERE image_id = '$legend_id'");
+      if (!$legimg) {
+        print ("<p class='message'>Image not found</p>");
+      } else {
+        $legends = $legimg->fetch_assoc();
+        $lfile = $legends['filename'];
+        print("<img src='images/$lfile' alt='Image not found' class='img'>");
+      }
+    ?>
+  </div>
   <div id="map"></div>
 </div>
 <button id="maptoggle"><div>Interactive Map</div></button>
+
 <?php
 if (isset($_SESSION["user"])) {
   print("<button id='leaveComment'>Leave a Comment</button>");

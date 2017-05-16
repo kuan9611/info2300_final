@@ -172,7 +172,10 @@ function customHeader(){
           <img src="http://www.thecollegesolution.com/wp-content/uploads/2014/06/Cornell.jpg" alt="Image Not Found">
           <div class="message">
             <div class="title-in-box">
-              <h2>Editor's Notes</h2>
+              <h2>A Note from The Editor-In-Chief, Peter Fiduccia</h2>
+              <p>The Cornell Policy Review is proud to launch our 2nd annual Special Edition, focused on the use of Geographic Information Systems (GIS). Our team continues to strive to cultivate engaging content across all of our platforms, and bringing the unique capabilities of GIS to bear on our policy analyses is no exception.</p> 
+              <p>Geospatial information informs most every decision in our daily lives: from simple relationships such as where to go and how to get there, to understanding complex interactions such as climate data and population trends. By translating data from tabular to visualized forms, we offer a different tool with which to interpret that data: perspective. As the number of methods by which we aggregate data consistently grows, so too must we increase the novel ways in which we represent that data to citizens, policymakers, and stakeholders across the globe. Data visualization is not only a way to effectively communicate complex information, but also allows us to critically evaluate the systems of which we are all a part.</p>
+              <p>The Review has paired with students from various backgrounds, studying in various academic pursuits, to bring you an example of how we believe Geographic Information Systems can impact how we gather, analyze, and present complex relationships. By gathering a deeper understanding of geography and our own relationship to location, we can make more informed decisions about our communities, societies, and the world.</p>
             </div>
           </div>
       </div>
