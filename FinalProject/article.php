@@ -186,9 +186,9 @@ if (isset($_SESSION["user"])) {
   <h3 id="section-header">Comments</h3>
   <?php
   if (isset($_SESSION["user"])) {
-    print("<div id='commentInput'><textarea id='scommentText' placeholder='enter comment'></textarea><br><button id='postScomment'><a>Post</a></button></div>");
+    print("<div id='commentInput'><textarea id='scommentText' placeholder='Enter Comment'></textarea><br><button id='postScomment'><a>Post</a></button></div>");
   } else {
-    print("<p id='signinMessage'><a href='login.php'>Please sign in to leave a comment</a><p>");
+    print("<p id='signinMessage'><a href='login.php?article_id=$article_id'>Please sign in to leave a comment</a><p>");
   }
   $threads = $mysqli->query("SELECT * FROM Threads
                               WHERE article_id = $article_id

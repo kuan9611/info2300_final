@@ -3,8 +3,11 @@
 	<div id="login-area">
 		<?php
 
-		if (isset($_GET["login-submit"])) {
+		if (!empty($_GET["article_id"])) {
+			$article_id = filter_input(INPUT_GET, 'article_id', FILTER_VALIDATE_INT);
+		}
 
+		if (isset($_GET["login-submit"])) {
 			$username = filter_input(INPUT_GET, 'username', FILTER_SANITIZE_STRING);
 			$password = hash("sha256", $_GET['password']);
 
@@ -22,21 +25,23 @@
 				$stmt->execute();
 				$result = $stmt->get_result();
 			}
-
 			if ($account = $result->fetch_assoc()) {
 				$_SESSION["user"] = $username;
 				echo "<p>Sign-in successful!</p>";
+				$link = '"article.php?id='.$article_id.'"';
 				echo '<script type="text/javascript">';
 				if ($account["permission"] === 2) {
 					echo 'window.location.href="admin.php";';
+				} else if (!empty($article_id)) {
+					echo 'window.location.href='.$link;
 				} else {
 					echo 'window.location.href="index.php";';
 				}
-	      		echo '</script>';
+	      echo '</script>';
 			}
 
 			echo "<p>(!) Username or password incorrect</p>";
-			
+
 		}
 
 		?>
@@ -94,14 +99,19 @@
 					$stmt = $mysqli->stmt_init();
 					$stmt->prepare($query);
 					$stmt->bind_param("ss", $username, $password1);
+					$link = "article.php?id=".$article_id;
 					if (!$stmt->execute()) {
 						echo "<p>(!) Sign-up unsuccessful; check input</p>";
 					} else {
 						$_SESSION["user"] = $username;
 						echo "<p>Sign-up successful!</p>";
 						echo '<script type="text/javascript">';
-			      		echo 'window.location.href="index.php";';
-			      		echo '</script>';
+						if (!empty($article_id)) {
+							echo 'window.location.href='.$link;
+						} else {
+							echo 'window.location.href="index.php";';
+						}
+			      echo '</script>';
 					}
 					$stmt->close();
 				}
