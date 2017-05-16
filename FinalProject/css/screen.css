@@ -269,9 +269,9 @@ nav ul ul ul {
 
 #maptoggle {
 	position: fixed;
-	height: 4em;
-	width: 5%;
-	min-width: 3.6em;
+	height: 15em;
+	width: 3%;
+	min-width: 2em;
 	top: 40%;
 	text-decoration: none;
 	background-color: #b00d10;
@@ -282,6 +282,19 @@ nav ul ul ul {
 	border-radius: 0 10px 10px 0px;
 	opacity: .7;
 	margin: 0;
+	padding: 0;
+}
+#maptoggle div {
+	position: relative;
+	top: -5.5em;
+	width: 9.5em;
+	font-size: 1.5em;
+	-webkit-transform-origin: bottom left;
+	-moz-transform-origin: bottom left;
+	transform-origin: bottom left;
+	-webkit-transform: rotate(90deg);   
+	-moz-transform: rotate(90deg);
+	transform: rotate(90deg);
 }
 
 #leaveComment, #showComment, #hideComment {
@@ -289,18 +302,18 @@ nav ul ul ul {
 	height: 4em;
 	width: 5%;
 	min-width: 6em;
-	top: 50%;
+	top: 40%;
 	right: -40%;
 	text-decoration: none;
 	background-color: #b00d10;
 	opacity: 0.6;
 	border: none;
 	color: white;
-	border-radius: 0 10px 10px 0px;
+	border-radius: 10px 0px 0px 10px;
 	z-index: 998;
 	opacity: .7;
 }
-#leaveComment { top: 40%; }
+#leaveComment { top: 55%; }
 
 #signinMessage {
 	font-size: 18px;

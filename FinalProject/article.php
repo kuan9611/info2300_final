@@ -134,7 +134,7 @@
 <div id="mapcontainer">
   <div id="map"></div>
 </div>
-<button id="maptoggle">Toggle Map</button>
+<button id="maptoggle"><div>Interactive Map</div></button>
 <?php
 if (isset($_SESSION["user"])) {
   print("<button id='leaveComment'>Leave a Comment</button>");

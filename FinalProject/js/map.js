@@ -169,6 +169,12 @@ $(document).ready(function () {
     }
   });
 
+  $('#maptoggle').on('mouseover', function() {
+    $(this).css("opacity", 1);
+  });
+  $('#maptoggle').on('mouseout', function() {
+    $(this).css("opacity", 0.7);
+  });
   $('#maptoggle').on('click', function(e){
     e.preventDefault();
     // create menu variables
@@ -192,7 +198,6 @@ $(document).ready(function () {
     // slide menu
     if (slideoutMap.hasClass("open")) {
       $('#maptoggle').css("background-color","black")
-      $('#maptoggle').css("opacity",".7")
       slideoutMap.animate({
         right: 0
       });
@@ -201,7 +206,6 @@ $(document).ready(function () {
       }
     } else {
       $('#maptoggle').css("background-color","#b00d10")
-      $('#maptoggle').css("opacity","1")
       slideoutMap.animate({
         right: -slideoutMapWidth*2
       }, 250);
