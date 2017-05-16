@@ -19,7 +19,7 @@ $(document).ready(function () {
 
   $("#discussion-section").on("click", ".scomment-delete", function() {
     var id = parseInt($(this).attr('id'));
-    
+
     var request = $.ajax({
       url: "includes/del_comment.php",
       type: "POST",
@@ -37,7 +37,7 @@ $(document).ready(function () {
   $("#discussion-section").on("click", ".scomment-reply", function() {
     var id = parseInt($(this).attr('id'));
     $('<div id="'+id+'srt"><textarea class="sreplyText" placeholder="enter reply">'+
-      '</textarea><br><a class="sreply-post" id="'+id+'srp">post</a></div>')
+      '</textarea><br><button class="replyComments"><a class="sreply-post" id="'+id+'srp">Post</a></button></div>')
       .insertAfter($(this));
     $(this).remove();
   });

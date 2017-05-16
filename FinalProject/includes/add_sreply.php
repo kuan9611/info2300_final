@@ -32,7 +32,7 @@ if ($stmt->execute()) {
 	echo json_encode(array(
         'success' => 1,
         'id' => $thread_id,
-        'content' => '<div class="section-comment" id="'.$new_comment_id.'sc"><b>'.$_SESSION["user"].'</b> (just now):<br>'.$content.'<br><a class="scomment-delete" id="'.$new_comment_id.'sd">delete</a></div>'
+        'content' => '<div class="section-comment" id="'.$new_comment_id.'sc"><b>'.$_SESSION["user"].'</b> (just now):<br>'.$content.'<br><a class="scomment-delete" id="'.$new_comment_id.'sd">Delete</a></div>'
     ));
 } else {
 	echo json_encode(array(

@@ -55,7 +55,7 @@ if ($success) {
 	$mysqli->commit();
 	echo json_encode(array(
         'success' => 1,
-        'content' => '<div class="section-thread" id="'.$new_thread_id.'st"><div class="section-comment" id="'.$new_comment_id.'sc"><b>'.$_SESSION["user"].'</b> (just now):<br>'.$content.'<br><a class="scomment-delete" id="'.$new_comment_id.'sd">delete</a></div></div>'
+        'content' => '<div class="section-thread" id="'.$new_thread_id.'st"><div class="section-comment" id="'.$new_comment_id.'sc"><b>'.$_SESSION["user"].'</b> (just now):<br>'.$content.'<br><a class="scomment-delete" id="'.$new_comment_id.'sd">Delete</a></div></div>'
     ));
 } else {
 	$mysqli->rollback();

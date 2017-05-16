@@ -183,10 +183,12 @@ if (isset($_SESSION["user"])) {
 </div>
 
 <div id="discussion-section">
-  <h3 id="section-header"><i><?php print($title); ?></i> · Comments</h3>
+  <h3 id="section-header">Comments</h3>
   <?php
   if (isset($_SESSION["user"])) {
-    print("<textarea id='scommentText' placeholder='enter comment'></textarea><br><a id='postScomment'>post</a>");
+    print("<div id='commentInput'><textarea id='scommentText' placeholder='enter comment'></textarea><br><button id='postScomment'><a>Post</a></button></div>");
+  } else {
+    print("<p id='signinMessage'><a href='login.php'>Please sign in to leave a comment</a><p>");
   }
   $threads = $mysqli->query("SELECT * FROM Threads
                               WHERE article_id = $article_id
@@ -198,12 +200,12 @@ if (isset($_SESSION["user"])) {
     while ($comment = $comments->fetch_assoc()) {
       print('<div class="section-comment" id="'.$comment['comment_id'].'sc"><b>'.$comment['username'].'</b> ('.$comment['date'].'):<br>'.$comment['content']);
       if (isset($_SESSION["user"]) && $_SESSION["user"] === $comment['username']) {
-        print('<br><a class="scomment-delete" id="'.$comment['comment_id'].'sd">delete</a>');
+        print('<br><a class="scomment-delete" id="'.$comment['comment_id'].'sd">Delete</a>');
       }
       print('</div>');
     }
     if (isset($_SESSION["user"])) {
-      print('<a class="scomment-reply" id="'.$thread['thread_id'].'sr">reply</a>');
+      print('<a class="scomment-reply" id="'.$thread['thread_id'].'sr">Reply</a>');
     }
     print('</div>');
   }
