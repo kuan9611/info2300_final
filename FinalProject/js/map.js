@@ -3,7 +3,7 @@ $(document).ready(function () {
   // to draw a different webmap, just append its id instead
   // webmap.html?id=13750b8b548d48bfa99a9731f2a93ba0
 
-  //var webmapId = '8449792b21af48659aeb77c95dd14858'; // Default WebMap ID
+  var webmapId = '8449792b21af48659aeb77c95dd14858'; // Default WebMap ID
   var webmap = L.esri.webMap(webmapId, { map: L.map("map") });
   var map = webmap._map;
   var urlParams = location.search.substring(1).split('&');
@@ -115,8 +115,10 @@ $(document).ready(function () {
 
   $("#mapcontainer").on("click", ".comment-reply", function() {
     var id = parseInt($(this).attr('id'));
-    $('<div id="'+id+'t"><textarea class="replyText" placeholder="enter reply">'+
-      '</textarea><br><a class="reply-post" id="'+id+'s">post</a></div>')
+    $('<div class="replyPanel" id="'+id+
+      't"><textarea class="replyText" placeholder="enter reply">'+
+      '</textarea><br><a class="reply-post" id="'+id+
+      's">post</a></div>')
       .insertAfter($(this));
     $(this).remove();
   });

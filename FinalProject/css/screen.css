@@ -318,6 +318,12 @@ nav ul ul ul {
 	margin-top: 5px;
 	width: 100%;
 }
+.reply-post {
+	float: right;
+}
+.replyPanel {
+	overflow: hidden;
+}
 
 /* top level */
 nav > ul {

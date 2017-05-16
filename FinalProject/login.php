@@ -3,13 +3,13 @@
 	<div id="login-area">
 		<?php
 
-		if (!empty($_GET["article_id"])) {
-			$article_id = filter_input(INPUT_GET, 'article_id', FILTER_VALIDATE_INT);
+		if (isset($_GET["id"])) {
+			$article_id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
 		}
 
-		if (isset($_GET["login-submit"])) {
-			$username = filter_input(INPUT_GET, 'username', FILTER_SANITIZE_STRING);
-			$password = hash("sha256", $_GET['password']);
+		if (isset($_POST["login-submit"])) {
+			$username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
+			$password = hash("sha256", $_POST['password']);
 
 			require_once 'includes/config.php';
 			$mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
@@ -47,7 +47,7 @@
 		?>
 
 		<h3>SIGN IN</h3>
-		<form id="login-form" method="get">
+		<form id="login-form" method="post">
 			<p>Username</p>
 			<input type="text" name="username" placeholder="">
 		  <p>Password</p>

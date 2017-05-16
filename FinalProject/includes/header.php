@@ -33,7 +33,12 @@
 					if (isset($_SESSION["user"])) {
 						print("<a href='#' id='logout'>Sign out</a>");
 					} else {
-						print("<a href='login.php'>Sign in</a>");
+						$article_id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
+						if (!empty($article_id)) {
+							print("<a href='login.php?id=$article_id'>Sign in</a>");
+						} else {
+							print("<a href='login.php'>Sign in</a>");
+						}
 					}
 					?>
 				</div>
