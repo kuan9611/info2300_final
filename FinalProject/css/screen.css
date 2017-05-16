@@ -313,6 +313,7 @@ nav ul ul ul {
 	z-index: 998;
 	opacity: .7;
 }
+
 #leaveComment, #pleaseLogin { top: 55%; }
 
 #signinMessage {
@@ -381,7 +382,7 @@ nav > ul > li > a[aria-haspopup="true"]::after {
 	width: 5%;
 	min-width: 6em;
 	top: 20%;
-	left: -40%;
+	right: -40%;
 	text-decoration: none;
 	background-color: #b00d10;
 	opacity: 0.6;
@@ -474,6 +475,7 @@ html[xmlns] .clearfix { display: block; }
 #authorcard {
 	display: inline-flex;
 	flex-wrap: wrap;
+	padding: 60px 0 20px;
 }
 
 #authorcard h1 {
