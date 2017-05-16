@@ -15,7 +15,7 @@ require_once 'config.php';
 $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 $query = "SELECT thread_id
-		  FROM comments
+		  FROM Comments
 		  WHERE comment_id = $comment_id";
 if ($result = $mysqli->query($query)) {
 	$thread_id = $result->fetch_row()[0];
@@ -26,17 +26,17 @@ if ($result = $mysqli->query($query)) {
     )) );
 }
 
-$query = "DELETE FROM comments
+$query = "DELETE FROM Comments
 		  WHERE comment_id = $comment_id";
 $mysqli->query($query);
 
 $query = "SELECT COUNT(*)
-		  FROM comments
+		  FROM Comments
 		  WHERE thread_id = $thread_id";
 $result = $mysqli->query($query);
 
 if (((int) $result->fetch_row()[0]) === 0) {
-	$query = "DELETE FROM threads
+	$query = "DELETE FROM Threads
 			  WHERE thread_id = $thread_id";
 	$mysqli->query($query);
 }
