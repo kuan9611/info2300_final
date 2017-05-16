@@ -56,6 +56,7 @@ $(document).ready(function () {
       var resp = $.parseJSON(resp);
       if (resp.success) {
         $(resp.content).insertBefore('#'+resp.id+'srt');
+        $('<a class="scomment-reply" id="'+resp.id+'sr">reply</a>').insertBefore('#'+resp.id+'srt');
         $('#'+resp.id+'srt').remove();
       }
     });
