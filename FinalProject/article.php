@@ -147,9 +147,11 @@
   </div>
   <div id="map"></div>
 </div>
-<button id="maptoggle"><div>Interactive Map</div></button>
 
 <?php
+if (((int)$article_id !== 5) && ((int)$article_id !== 2)) {
+  print("<button id='maptoggle'><div>Interactive Map</div></button>");
+}
 if (isset($_SESSION["user"])) {
   print("<button id='leaveComment'>Leave a Comment</button>");
 } else {
