@@ -25,11 +25,11 @@
       $biopic = $img['filename'];
 			print("<div class='authorinfo'>");
 				print("<div id='authorcard'>");
-					print("<div id='authorpic'>");
-            if ($biopic == "default.png") { print(""); }
-            else {print("<img src='images/$biopic' alt='Image not found' class='img'>");}
-          print("</div>");
-					print("");
+					if ($biopic != "default.png") {
+            print("<div id='authorpic'>");
+              print("<img src='images/$biopic' alt='Image not found' class='img'>");
+            print("</div>");
+          }
 					print("<div id='authorbio'><h3>$name</h3> <p>$description</p>");
 						print("<div id='authorarticle'><h3>Article</h3> <a href='article.php?id=$articlelink'>$article</a>");
             print("</div>");

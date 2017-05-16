@@ -292,7 +292,7 @@ nav ul ul ul {
 	-webkit-transform-origin: bottom left;
 	-moz-transform-origin: bottom left;
 	transform-origin: bottom left;
-	-webkit-transform: rotate(90deg);   
+	-webkit-transform: rotate(90deg);
 	-moz-transform: rotate(90deg);
 	transform: rotate(90deg);
 }
@@ -428,7 +428,6 @@ html[xmlns] .clearfix { display: block; }
 
 .authorinfo {
 	margin: 2em auto;
-	margin-right: 10%;
 	width: 70%;
 }
 
@@ -444,6 +443,7 @@ html[xmlns] .clearfix { display: block; }
 
 #authorpic {
 	float: left;
+	padding-left: 30px;
 }
 
 #authorpic img {
@@ -453,8 +453,8 @@ html[xmlns] .clearfix { display: block; }
 }
 
 #authorbio {
-	float: right;
-	width: 60%;
+	width: 65%;
+	margin: auto;
 }
 
 #authorbio h3 {
@@ -678,8 +678,8 @@ input[type=submit] {
 #divider {
     position:absolute;
     left:50%;
-    top:20%;
-    bottom:40%;
+    top:30%;
+    bottom:20%;
     border-left:3px dotted black;
 }
 
