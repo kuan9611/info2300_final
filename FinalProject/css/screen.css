@@ -713,7 +713,6 @@ input[type=submit] {
 
 #comments {
 	border-spacing: 10px;
-    border-collapse: separate;
 }
 
 thead {
@@ -726,6 +725,18 @@ tbody {
 
 tbody > tr {
 	height: 80px;
+}
+
+th, td {
+   border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+	background-color: #f5f5f5
+}
+
+td a {
+	cursor:pointer;
 }
 
 .column-two {
