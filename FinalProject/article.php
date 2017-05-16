@@ -134,7 +134,7 @@
 <div id="mapcontainer">
   <a href="#" id="legToggle">Legend</a>
   <div id="legend">
-    <?php 
+    <?php
       $legimg = $mysqli->query("SELECT * FROM Images WHERE image_id = '$legend_id'");
       if (!$legimg) {
         print ("<p class='message'>Image not found</p>");
@@ -152,6 +152,8 @@
 <?php
 if (isset($_SESSION["user"])) {
   print("<button id='leaveComment'>Leave a Comment</button>");
+} else {
+  print("<a href='login.php?id=$article_id'><button id='pleaseLogin'>Log in to Comment</button></a>");
 }
 ?>
 <button id="showComment">Show Comments</button>

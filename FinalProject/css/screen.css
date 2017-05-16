@@ -297,7 +297,7 @@ nav ul ul ul {
 	transform: rotate(90deg);
 }
 
-#leaveComment, #showComment, #hideComment {
+#leaveComment, #showComment, #hideComment, #pleaseLogin{
 	position: fixed;
 	height: 4em;
 	width: 5%;
@@ -313,7 +313,7 @@ nav ul ul ul {
 	z-index: 998;
 	opacity: .7;
 }
-#leaveComment { top: 55%; }
+#leaveComment, #pleaseLogin { top: 55%; }
 
 #signinMessage {
 	font-size: 18px;

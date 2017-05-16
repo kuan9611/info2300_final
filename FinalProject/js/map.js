@@ -94,7 +94,7 @@ $(document).ready(function () {
 
   $("#mapcontainer").on("click", ".comment-delete", function() {
     var id = parseInt($(this).attr('id'));
-    
+
     var request = $.ajax({
       url: "includes/del_comment.php",
       type: "POST",
@@ -187,7 +187,7 @@ $(document).ready(function () {
     var screenWidth = $(window).width();
     var slideoutMap = $('#mapcontainer');
     var slideoutMapWidth = $('#mapcontainer').width();
-    var slideoutCom = $('#leaveComment, #showComment, #hideComment, #legToggle');
+    var slideoutCom = $('#leaveComment, #showComment, #hideComment, #legToggle, #pleaseLogin');
     // toggle open class
     slideoutMap.toggleClass("open");
     slideoutCom.toggleClass("open");
@@ -195,7 +195,7 @@ $(document).ready(function () {
     if (slideoutCom.hasClass("open")) {
       slideoutCom.animate({
         right: 0
-      }); 
+      });
     } else {
       slideoutCom.animate({
         right: -slideoutMapWidth*.4
